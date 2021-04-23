@@ -83,7 +83,11 @@ QUIC version 2 endpoints MUST implement the QUIC version 1 specification as
 described in {{QUIC-TRANSPORT}}, {{!I-D.ietf-quic-tls}}, and
 {{!I-D.ietf-quic-recovery}}, with the following changes:
 
-* The version field of long headers is 0x00000002.
+* The version field of long headers is 0x00000002. Note: Unless this document
+is published as an RFC, any experimentation with this document will use the
+experimental version number 0xff0100nn, where 'nn' is the version of this 
+draft. For example, implementations of version 18 of this draft would
+advertise support for version 0xff010012.
 
 * The salt used to derive Initial keys in Sec 5.2 of {{!I-D.ietf-quic-tls}}
 changes to
