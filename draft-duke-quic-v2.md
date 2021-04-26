@@ -59,8 +59,9 @@ differ semantically.
 
 QUIC version 2 is meant to mitigate ossification concerns and exercise the
 version negotiation mechanisms. The only change is a tweak to the inputs of
-some crypto derivation functions. Any endpoint that supports two versions needs
-to implement version negotiation to protect against downgrade attacks.
+some crypto derivation functions to enforce full key separation. Any endpoint
+that supports two versions needs to implement version negotiation to protect
+against downgrade attacks.
 
 This document may, over time, also serve as a vehicle for other needed changes
 to QUIC version 1.
@@ -84,7 +85,7 @@ described in {{QUIC-TRANSPORT}}, {{!I-D.ietf-quic-tls}}, and
 
 * The version field of long headers is 0x00000002. Note: Unless this document
 is published as an RFC, implementations should use the provisional value
-0xff010001. This value will change with each edition of this document.
+0xff010001, which might change with each edition of this document.
 
 * The salt used to derive Initial keys in Sec 5.2 of {{!I-D.ietf-quic-tls}}
 changes to
@@ -93,13 +94,20 @@ changes to
 initial_salt = 0xa707c203a59b47184a1d62ca570406ea7ae3e5d3
 ~~~
 
+* The labels used in {{!I-D.ietf-quic-tls}} to derive packet protection keys
+(Sec 5.1), header protection keys (Sec 5.4), Retry Integrity Tag keys (Sec
+5.8), and key updates (Sec 6.1) change from "quic key" to "quicv2 key", from
+"quic iv" to "quicv2 iv", from "quic hp" to "quicv2 hp", and from "quic ku"
+to "quicv2 ku," to meet the guidance for new versions in Section 9.6 of that
+document.
+
 * The key and nonce used for the Retry Integrity Tag (Sec 5.8 of
-{{!I-D.ietf-quic-tls}} changes to:
+{{!I-D.ietf-quic-tls}} change to:
 
 ~~~
 secret = 0x3425c20cf88779df2ff71e8abfa78249891e763bbed2f13c048343d348c060e2
-key = 0xb574a2ab2ba0c1f38f9a1057b6a2d72c
-nonce = 0xd440d28a56e678f70c1482a0
+key = 0xba858dc7b43de5dbf87617ff4ab253db
+nonce = 0x141b99c239b03e785d6a2e9f
 
 ~~~
 
@@ -117,12 +125,6 @@ negotiation unless they do not support version 1.
 As version 1 support is more likely than version 2 support, a client SHOULD use
 QUIC version 1 for its original version unless it has out-of-band knowledge that
 the server supports version 2.
-
-Note that the only wire image differences between a version-1-to-2 compatible
-negotiation and a version 1 connection are that (1) Handshake packet headers
-will encode version 2, and (2) server Initial packets and client second-flight
-Initial packets will both encode version 2 and use keys derived from the
-version 2 salt.
 
 # Ossification Considerations
 
@@ -174,3 +176,4 @@ Contact: QUIC WG
 
 * Added provisional versions for interop
 * Change the v1 Retry Tag secret
+* Change labels to create full key separation
