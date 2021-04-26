@@ -1,7 +1,7 @@
 ---
 title: QUIC Version 2
 abbrev: QUICv2
-docname: draft-duke-quic-v2-00
+docname: draft-duke-quic-v2-01
 category: std
 ipr: trust200902
 area: Transport
@@ -58,10 +58,9 @@ round-trip penalty but levies some restrictions on how much the two versions can
 differ semantically.
 
 QUIC version 2 is meant to mitigate ossification concerns and exercise the
-version negotiation mechanisms. The only behavioral changes is that Initial
-packets use a different salt for key derivation. Any endpoint that supports two
-versions needs to implement version negotiation to protect against downgrade
-attacks.
+version negotiation mechanisms. The only change is a tweak to the inputs of
+some crypto derivation functions. Any endpoint that supports two versions needs
+to implement version negotiation to protect against downgrade attacks.
 
 This document may, over time, also serve as a vehicle for other needed changes
 to QUIC version 1.
@@ -84,10 +83,8 @@ described in {{QUIC-TRANSPORT}}, {{!I-D.ietf-quic-tls}}, and
 {{!I-D.ietf-quic-recovery}}, with the following changes:
 
 * The version field of long headers is 0x00000002. Note: Unless this document
-is published as an RFC, any experimentation with this document will use the
-experimental version number 0xff0100nn, where 'nn' is the version of this 
-draft. For example, implementations of version 18 of this draft would
-advertise support for version 0xff010012.
+is published as an RFC, implementations should use the provisional value
+0xff010001. This value will change with each edition of this document.
 
 * The salt used to derive Initial keys in Sec 5.2 of {{!I-D.ietf-quic-tls}}
 changes to
@@ -95,6 +92,17 @@ changes to
 ~~~
 initial_salt = 0xa707c203a59b47184a1d62ca570406ea7ae3e5d3
 ~~~
+
+* The key and nonce used for the Retry Integrity Tag (Sec 5.8 of
+{{!I-D.ietf-quic-tls}} changes to:
+
+~~~
+secret = 0x3425c20cf88779df2ff71e8abfa78249891e763bbed2f13c048343d348c060e2
+key = 0xb574a2ab2ba0c1f38f9a1057b6a2d72c
+nonce = 0xd440d28a56e678f70c1482a0
+
+~~~
+
 
 # Version Negotiation Considerations
 
@@ -156,3 +164,13 @@ Change Controller: IETF
 Contact: QUIC WG
 
 --- back
+
+# Changelog
+
+> **RFC Editor's Note:**  Please remove this section prior to
+> publication of a final version of this document.
+
+## since draft-duke-quic-v2-00
+
+* Added provisional versions for interop
+* Change the v1 Retry Tag secret
