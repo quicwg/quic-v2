@@ -83,8 +83,8 @@ QUIC version 2 endpoints MUST implement the QUIC version 1 specification as
 described in {{QUIC-TRANSPORT}}, {{!I-D.ietf-quic-tls}}, and
 {{!I-D.ietf-quic-recovery}}, with the following changes:
 
-* The version field of long headers is 0x00000002. Note: Unless this document
-is published as an RFC, implementations should use the provisional value
+* The version field of long headers is TBD. Note: Unless this document is
+published as an RFC, implementations should use the provisional value
 0xff010001, which might change with each edition of this document.
 
 * The salt used to derive Initial keys in Sec 5.2 of {{!I-D.ietf-quic-tls}}
@@ -155,7 +155,7 @@ identical.
 This document requests that IANA add the following entry to the QUIC version
 registry:
 
-Value: 0x00000002
+Value: TBD
 
 Status: permanent
 
