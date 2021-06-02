@@ -1,5 +1,6 @@
 *.html
-*.xml
+report.xml
+draft*.xml
 *.swp
 *.md~
 *.un~
