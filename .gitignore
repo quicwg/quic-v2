@@ -5,4 +5,14 @@ draft*.xml
 *.md~
 *.un~
 metadata.min.js
-lib
+lib/
+./refcache
+./refcache/*
+.targets.mk
+.tags
+*.txt
+*.upload
+venv/
+*.pdf
+archive.json
+
