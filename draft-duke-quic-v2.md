@@ -1,7 +1,7 @@
 ---
 title: QUIC Version 2
 abbrev: QUICv2
-docname: draft-duke-quic-v2-01
+docname: draft-duke-quic-v2-latest
 category: std
 ipr: trust200902
 area: Transport
