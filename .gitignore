@@ -3,3 +3,5 @@
 *.swp
 *.md~
 *.un~
+metadata.min.js
+lib
