@@ -138,6 +138,13 @@ Clients interested in combating firewall ossification can initiate a connection
 using version 2 if they are either reasonably certain the server supports it, or
 are willing to suffer a round-trip penalty if they are incorrect.
 
+# Applicability
+
+This version of QUIC provides no change from QUIC version 1 relating to the
+capabilities available to applications. Therefore, all Application Layer
+Protocol Negotiation (ALPN) ({{?RFC7301}}) codepoints specified to operate over
+QUICv1 can also operate over this version of QUIC.
+
 # Security Considerations
 
 QUIC version 2 introduces no changes to the security or privacy properties of
@@ -168,6 +175,11 @@ Contact: QUIC WG
 
 > **RFC Editor's Note:**  Please remove this section prior to
 > publication of a final version of this document.
+
+## since draft-duke-quic-v2-01
+
+* Made the final version number TBD.
+* Added ALPN considerations
 
 ## since draft-duke-quic-v2-00
 
