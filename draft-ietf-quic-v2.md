@@ -182,7 +182,8 @@ Contact: QUIC WG
 ## since draft-duke-quic-v2-02
 
 * Converted to adopted draft
-* Deleted references to possible improvements
+* Deleted references to QUIC improvements
+* Clarified status of QUIC extensions
 
 ## since draft-duke-quic-v2-01
 
