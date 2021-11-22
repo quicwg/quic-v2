@@ -146,6 +146,8 @@ capabilities available to applications. Therefore, all Application Layer
 Protocol Negotiation (ALPN) ({{?RFC7301}}) codepoints specified to operate over
 QUICv1 can also operate over this version of QUIC.
 
+All QUIC extensions defined to work with version 1 also work with version 2.
+
 # Security Considerations
 
 QUIC version 2 introduces no changes to the security or privacy properties of
