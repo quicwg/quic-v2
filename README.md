@@ -1,10 +1,10 @@
 # QUIC Version 2
 
-This is the working area for the individual Internet-Draft, "QUIC Version 2".
+This is the working area for the adopted QUIC WG Internet-Draft, "QUIC Version 2".
 
-* [Editor's Copy](https://martinduke.github.io/draft-duke-quic-v2/#go.draft-duke-quic-v2.html)
-* [Individual Draft](https://datatracker.ietf.org/doc/html/draft-duke-quic-v2)
-* [Compare Editor's Copy to Individual Draft](https://martinduke.github.io/draft-duke-quic-v2/#go.draft-duke-quic-v2.diff)
+* [Editor's Copy](https://quicwg.github.io/draft-ietf-quic-v2/#go.draft-ietf-quic-v2.html)
+* [Individual Draft](https://datatracker.ietf.org/doc/html/draft-ietf-quic-v2)
+* [Compare Editor's Copy to Individual Draft](https://quicwg.github.io/draft-ietf-quic-v2/#go.draft-ietf-quic-v2.diff)
 
 ## Building the Draft
 
@@ -21,4 +21,4 @@ This requires that you have the necessary software installed.  See
 ## Contributing
 
 See the
-[guidelines for contributions](https://github.com/martinduke/draft-duke-quic-v2/blob/main/CONTRIBUTING.md).
+[guidelines for contributions](https://github.com/quicwg/draft-ietf-quic-v2/blob/main/CONTRIBUTING.md).

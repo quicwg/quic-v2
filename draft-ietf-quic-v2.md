@@ -34,7 +34,7 @@ receive a version number other than 2 from IANA.
 
 Discussion of this work is encouraged to happen on the QUIC IETF
 mailing list [](quic@ietf.org) or on the GitHub repository which
-contains the draft: 
+contains the draft:
 [](https://github.com/martinduke/draft-duke-quic-v2).
 
 --- middle
