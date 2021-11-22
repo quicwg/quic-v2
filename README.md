@@ -1,12 +1,23 @@
 # QUIC Version 2
 
-This is the working area for the adopted QUIC WG Internet-Draft, "QUIC Version 2".
+This is the working area for the IETF [QUIC Working Group](https://datatracker.ietf.org/wg/quic/documents/) Internet-Draft, "QUIC Version 2".
 
-* [Editor's Copy](https://quicwg.github.io/draft-ietf-quic-v2/#go.draft-ietf-quic-v2.html)
-* [Individual Draft](https://datatracker.ietf.org/doc/html/draft-ietf-quic-v2)
-* [Compare Editor's Copy to Individual Draft](https://quicwg.github.io/draft-ietf-quic-v2/#go.draft-ietf-quic-v2.diff)
+* [Editor's Copy](https://quicwg.github.io/draft-duke-quic-v2/#go.draft-ietf-quic-v2.html)
+* [Datatracker Page](https://datatracker.ietf.org/doc/draft-ietf-quic-v2)
+* [Working Group Draft](https://datatracker.ietf.org/doc/html/draft-ietf-quic-v2)
+* [Compare Editor's Copy to Working Group Draft](https://quicwg.github.io/draft-duke-quic-v2/#go.draft-ietf-quic-v2.diff)
 
-## Building the Draft
+
+## Contributing
+
+See the
+[guidelines for contributions](https://github.com/quicwg/draft-duke-quic-v2/blob/main/CONTRIBUTING.md).
+
+Contributions can be made by creating pull requests.
+The GitHub interface supports creating pull requests using the Edit (✏) button.
+
+
+## Command Line Usage
 
 Formatted text and HTML versions of the draft can be built using `make`.
 
@@ -14,11 +25,6 @@ Formatted text and HTML versions of the draft can be built using `make`.
 $ make
 ```
 
-This requires that you have the necessary software installed.  See
-[the instructions](https://github.com/martinthomson/i-d-template/blob/master/doc/SETUP.md).
+Command line usage requires that you have the necessary software installed.  See
+[the instructions](https://github.com/martinthomson/i-d-template/blob/main/doc/SETUP.md).
 
-
-## Contributing
-
-See the
-[guidelines for contributions](https://github.com/quicwg/draft-ietf-quic-v2/blob/main/CONTRIBUTING.md).
