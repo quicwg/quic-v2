@@ -96,7 +96,7 @@ initial_salt = 0xa707c203a59b47184a1d62ca570406ea7ae3e5d3
 * The labels used in {{RFC9001}} to derive packet protection keys (Sec 5.1),
 header protection keys (Sec 5.4), Retry Integrity Tag keys (Sec 5.8), and key
 updates (Sec 6.1) change from "quic key" to "quicv2 key", from "quic iv" to
-"quicv2 iv", from "quic hp" to "quicv2 hp", and from "quic ku" to "quicv2 ku,"
+"quicv2 iv", from "quic hp" to "quicv2 hp", and from "quic ku" to "quicv2 ku",
 to meet the guidance for new versions in Section 9.6 of that document.
 
 * The key and nonce used for the Retry Integrity Tag (Sec 5.8 of {{RFC9001}})
