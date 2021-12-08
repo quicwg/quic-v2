@@ -4,8 +4,15 @@ abbrev: QUICv2
 docname: draft-ietf-quic-v2-latest
 category: std
 ipr: trust200902
-area: Transport
-workgroup: QUIC
+area: "Transport"
+workgroup: "QUIC"
+venue:
+  group: "QUIC"
+  type: "Working Group"
+  mail: "quic@ietf.org"
+  arch: "https://mailarchive.ietf.org/arch/browse/quic/"
+  github: "quicwg/quic-v2"
+  latest: "https://quicwg.org/quic-v2/draft-ietf-quic-v2.html"
 
 stand_alone: yes
 pi: [toc, sortrefs, symrefs, docmapping]
