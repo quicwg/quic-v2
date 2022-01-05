@@ -134,7 +134,10 @@ upgrade to version 2 if a client offers the option.
 As the only difference between version 1 and version 2 is the protection of
 Initial and Retry packets, compatibility is defined as taking the unprotected
 content of those packets and processing them as packets from the negotiated
-version.
+version.  Or, considering that endpoints will process packets in either version
+as they are received prior to negotiating a version, the state that is
+accumulated during that processing can be used as though it was the result of
+processing packets from the negotiated version.
 
 A server SHOULD produce a Retry packet in the same version as the Initial packet
 that the Retry packet responds to.  Validation of the Retry exchange uses the
