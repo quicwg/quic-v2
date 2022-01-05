@@ -117,19 +117,37 @@ nonce = 0x141b99c239b03e785d6a2e9f
 ~~~
 
 
-# Version Negotiation Considerations
+# Compatible Version Negotiation
 
 QUIC version 2 endpoints SHOULD also support QUIC version 1. Any QUIC endpoint
 that supports multiple versions MUST fully implement {{QUIC-VN}} to prevent
 version downgrade attacks.
 
-Note that version 2 meets that document's definition of a compatible version
-with version 1. Therefore, v2-capable servers MUST use compatible version
-negotiation unless they do not support version 1.
+QUIC version 2 is symemtrically compatible with QUIC version 1 as defined in
+{{Section 3 of QUIC-VN}}.  That is, a server can choose to negotiate version 2
+after a client initiates a connection using version 1; or, a server can
+negotiate version 1 if a client initiates a version 2 connection attempt.
 
-As version 1 support is more likely than version 2 support, a client SHOULD use
-QUIC version 1 for its original version unless it has out-of-band knowledge that
-the server supports version 2.
+A server that supports both version 1 and version 2 SHOULD support a compatible
+upgrade to version 2 if a client offers the option.
+
+As the only difference between version 1 and version 2 is the protection of
+Initial and Retry packets, compatibility is defined as taking the unprotected
+content of those packets and processing them as packets from the negotiated
+version.
+
+A server SHOULD produce a Retry packet in the same version as the Initial packet
+that the Retry packet responds to.  Validation of the Retry exchange uses the
+logic of the final negotiated version, treating the Retry as if it were sent in
+that version.  This means that the version used for Retry is not authenticated,
+only that it occurred and the connection ID that was used.
+
+A server MUST NOT accept 0-RTT when performing a compatible version upgrade.
+Any 0-RTT packets sent by the server will therefore be discarded.
+
+As version 1 support in servers is initially more likely than version 2 support,
+a client SHOULD use QUIC version 1 for its original version unless it has
+out-of-band knowledge that the server supports version 2.
 
 # Ossification Considerations
 
