@@ -123,7 +123,7 @@ QUIC version 2 endpoints SHOULD also support QUIC version 1. Any QUIC endpoint
 that supports multiple versions MUST fully implement {{QUIC-VN}} to prevent
 version downgrade attacks.
 
-QUIC version 2 is symemtrically compatible with QUIC version 1 as defined in
+QUIC version 2 is symmetrically compatible with QUIC version 1 as defined in
 {{Section 3 of QUIC-VN}}.  That is, a server can choose to negotiate version 2
 after a client initiates a connection using version 1; or, a server can
 negotiate version 1 if a client initiates a version 2 connection attempt.
