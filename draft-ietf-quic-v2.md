@@ -25,6 +25,8 @@ author:
     email: martin.h.duke@gmail.com
 
 normative:
+  QUIC: RFC9000
+  QUIC-TLS: RFC9001
 
 informative:
 
@@ -48,7 +50,7 @@ contains the draft:
 
 # Introduction
 
-QUIC {{!RFC9000}} has numerous extension points, including the version number
+QUIC {{QUIC}} has numerous extension points, including the version number
 that occupies the second through fifth octets of every long header (see
 {{?RFC8999}}). If experimental versions are rare, and QUIC version 1 constitutes
 the vast majority of QUIC traffic, there is the potential for middleboxes to
@@ -87,33 +89,38 @@ interpreted as described in RFC 2119 {{?RFC2119}}.
 # Changes from QUIC Version 1
 
 QUIC version 2 endpoints MUST implement the QUIC version 1 specification as
-described in {{RFC9000}}, {{!RFC9001}}, and {{!RFC9002}}, with the following
+described in {{QUIC}}, {{QUIC-TLS}}, and {{!RFC9002}}, with the following
 changes:
 
 * The version field of long headers is TBD. Note: Unless this document is
 published as an RFC, implementations should use the provisional value
 0xff020000, which might change with each edition of this document.
 
-* The salt used to derive Initial keys in Sec 5.2 of {{RFC9001}} changes to
+* The salt used to derive Initial keys in {{Section 5.2 of QUIC-TLS}} changes
+  to:
 
 ~~~
 initial_salt = 0xa707c203a59b47184a1d62ca570406ea7ae3e5d3
 ~~~
 
-* The labels used in {{RFC9001}} to derive packet protection keys (Sec 5.1),
-header protection keys (Sec 5.4), Retry Integrity Tag keys (Sec 5.8), and key
-updates (Sec 6.1) change from "quic key" to "quicv2 key", from "quic iv" to
-"quicv2 iv", from "quic hp" to "quicv2 hp", and from "quic ku" to "quicv2 ku",
-to meet the guidance for new versions in Section 9.6 of that document.
+* The labels used in {{QUIC-TLS}} to derive packet protection keys (Section
+{{Section 5.1 of QUIC-TLS}}{:sectionFormat="bare"}), header protection keys
+(Section {{Section 5.4 of QUIC-TLS}}{:sectionFormat="bare"}), Retry Integrity
+Tag keys (Section {{Section 5.8 of QUIC-TLS}}{:sectionFormat="bare"}), and key
+updates (Section {{Section 6.1 of QUIC-TLS}}{:sectionFormat="bare"}) change from
+"quic key" to "quicv2 key", from "quic iv" to "quicv2 iv", from "quic hp" to
+"quicv2 hp", and from "quic ku" to "quicv2 ku", to meet the guidance for new
+versions in Section {{Section 9.6 of QUIC-TLS}}{:sectionFormat="bare"} of that
+document.
 
-* The key and nonce used for the Retry Integrity Tag (Sec 5.8 of {{RFC9001}})
-change to:
+* The key and nonce used for the Retry Integrity Tag ({{Section 5.8 of
+QUIC-TLS}}) change to:
 
 ~~~
-secret = 0x3425c20cf88779df2ff71e8abfa78249891e763bbed2f13c048343d348c060e2
+secret =
+  0x3425c20cf88779df2ff71e8abfa78249891e763bbed2f13c048343d348c060e2
 key = 0xba858dc7b43de5dbf87617ff4ab253db
 nonce = 0x141b99c239b03e785d6a2e9f
-
 ~~~
 
 
