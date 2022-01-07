@@ -134,9 +134,37 @@ Note that version 2 meets that document's definition of a compatible version
 with version 1. Therefore, v2-capable servers MUST use compatible version
 negotiation unless they do not support version 1.
 
-As version 1 support is more likely than version 2 support, a client SHOULD use
-QUIC version 1 for its original version unless it has out-of-band knowledge that
-the server supports version 2.
+## Compatible Negotiation Requirements
+
+Compatible version negotiation between versions 1 and 2 follow the same
+requirements in either direction. This section uses the terms "original
+version" and "negotiated version" from {{QUIC-VN}}.
+
+If the server elects to send a Retry packet, it MUST do so using the original
+version.
+
+The server SHOULD start sending its Initial packets using the negotiated
+version as soon as it decides to change. Note that the server might send some
+Initial packets using the original version.
+
+Once the client has processed a packet using the negotiated version, it SHOULD
+send subsequent Initial packets using that version. The server MUST NOT discard
+its original version Initial receive keys until it successfully processes a
+packet with the negotiated version.
+
+Both endpoints MUST send Handshake or 1-RTT packets using the negotiated
+version. An endpoint MUST drop packets using any other version. Endpoints have
+no need to generate the keying material that would allow them to decrypt or
+authenticate these packets. 
+
+If the server's version_information transport parameter does not contain a
+Chosen Version field equivalent to the version in the server's Handshake packet
+headers, the client MUST terminate the connection with a
+VERSION_NEGOTIATION_ERROR.
+
+The client MUST NOT send 0-RTT packets using the negotiated version, even after
+processing a packet of that version from the server. Servers can apply original
+version 0-RTT packets to a connection without additional considerations.
 
 # Ossification Considerations
 
