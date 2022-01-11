@@ -149,8 +149,8 @@ switched.
 After switching to a negotiated version in response to a packet that contains a
 valid Retry token, endpoints MUST include the relevant transport parameters to
 validate that the server sent the Retry and the connection IDs used in the
-exchange, as described in {{QUIC}}. Note that the version of the Initial and
-Retry are not authenticated by transport parameters.  
+exchange, as described in {{QUIC}}. Note that the version of the first Initial
+and the subsequent Retry are not authenticated by transport parameters.  
 
 The server SHOULD start sending its Initial packets using the negotiated
 version as soon as it decides to change. Note that the server might send some
