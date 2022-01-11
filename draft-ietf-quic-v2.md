@@ -92,9 +92,7 @@ QUIC version 2 endpoints MUST implement the QUIC version 1 specification as
 described in {{QUIC}}, {{QUIC-TLS}}, and {{!RFC9002}}, with the following
 changes:
 
-* The version field of long headers is TBD. Note: Unless this document is
-published as an RFC, implementations should use the provisional value
-0xff020000, which might change with each edition of this document.
+* The version field of long headers is 0x709a50c4.
 
 * The salt used to derive Initial keys in {{Section 5.2 of QUIC-TLS}} changes
   to:
@@ -204,9 +202,9 @@ identical.
 This document requests that IANA add the following entry to the QUIC version
 registry:
 
-Value: TBD
+Value: 0x709a50c4
 
-Status: permanent
+Status: provisional
 
 Specification: This Document
 
@@ -220,6 +218,10 @@ Contact: QUIC WG
 
 > **RFC Editor's Note:**  Please remove this section prior to
 > publication of a final version of this document.
+
+## since draft-ietf-quic-v2-00
+
+* Random version number
 
 ## since draft-duke-quic-v2-02
 
