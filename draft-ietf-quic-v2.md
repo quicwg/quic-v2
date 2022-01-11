@@ -127,8 +127,8 @@ nonce = 0x141b99c239b03e785d6a2e9f
 # Version Negotiation Considerations
 
 QUIC version 2 endpoints SHOULD also support QUIC version 1. Any QUIC endpoint
-that supports multiple versions MUST fully implement {{QUIC-VN}} to prevent
-version downgrade attacks.
+that supports multiple versions MUST meet the minimum requirements described in
+{{QUIC-VN}} to prevent version downgrade attacks.
 
 Note that version 2 meets that document's definition of a compatible version
 with version 1. Therefore, v2-capable servers MUST use compatible version
@@ -220,6 +220,10 @@ Contact: QUIC WG
 
 > **RFC Editor's Note:**  Please remove this section prior to
 > publication of a final version of this document.
+
+## since draft-ietf-quic-v2-00
+
+* Clarified requirement to use QUIC-VN
 
 ## since draft-duke-quic-v2-02
 
