@@ -157,8 +157,9 @@ If the server elects to send a Retry packet, it MUST do so using the original
 version.
 
 The server SHOULD start sending its Initial packets using the negotiated
-version as soon as it decides to change. Note that the server might send some
-Initial packets using the original version.
+version as soon as it decides to change. Before the server is able to process
+transport parameters from the client, it might need to respond to Initial
+packets from the client. For these packets the server uses the original version.
 
 Once the client has processed a packet using the negotiated version, it SHOULD
 send subsequent Initial packets using that version. The server MUST NOT discard
