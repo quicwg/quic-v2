@@ -153,8 +153,18 @@ Compatible version negotiation between versions 1 and 2 follow the same
 requirements in either direction. This section uses the terms "original
 version" and "negotiated version" from {{QUIC-VN}}.
 
-If the server elects to send a Retry packet, it MUST do so using the original
-version.
+If the server sends a Retry packet, it MUST use the original version. The
+client ignores Retry packets using other versions. The client MUST NOT use a
+different version in the subsequent Initial that contains the Retry token. The
+server MAY encode the QUIC version in its Retry token to validate that the
+client did not switch versions, and drop the packet if it switched.
+
+QUIC version 2 uses the same transport parameters to authenticate the Retry as
+QUIC version 1. After switching to a negotiated version after a Retry, the
+server MUST include the relevant transport parameters to validate that the
+server sent the Retry and the connection IDs used in the exchange, as described
+in {{Section 7.3 of QUIC}}. Note that the version of the first Initial and the subsequent Retry
+are not authenticated by transport parameters.  
 
 The server SHOULD start sending its Initial packets using the negotiated
 version as soon as it decides to change. Before the server is able to process
