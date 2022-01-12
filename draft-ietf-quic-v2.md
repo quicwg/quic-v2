@@ -94,9 +94,7 @@ changes.
 
 ## Version Field
 
-The version field of long headers is TBD. Note: Unless this document is
-published as an RFC, implementations should use the provisional value
-0xff020000, which might change with each edition of this document.
+The version field of long headers is 0x709a50c4.
 
 ## Long Header Packet Types
 
@@ -219,9 +217,9 @@ identical.
 This document requests that IANA add the following entry to the QUIC version
 registry:
 
-Value: TBD
+Value: 0x709a50c4
 
-Status: permanent
+Status: provisional
 
 Specification: This Document
 
@@ -239,6 +237,7 @@ Contact: QUIC WG
 ## since draft-ietf-quic-v2-00
 * Expanded requirements for compatible version negotiation
 * Greased the packet type codepoints
+* Random version number
 
 ## since draft-duke-quic-v2-02
 
