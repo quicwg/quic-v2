@@ -90,18 +90,31 @@ interpreted as described in RFC 2119 {{?RFC2119}}.
 
 QUIC version 2 endpoints MUST implement the QUIC version 1 specification as
 described in {{QUIC}}, {{QUIC-TLS}}, and {{!RFC9002}}, with the following
-changes:
+changes.
 
-* The version field of long headers is 0x709a50c4.
+## Version Field
 
-* The salt used to derive Initial keys in {{Section 5.2 of QUIC-TLS}} changes
-  to:
+The version field of long headers is 0x709a50c4.
+
+## Long Header Packet Types
+
+Initial packets use a packet type field of 0b01. 0-RTT packets use a packet
+type field of 0b10. Handshake packets use a packet type field of 0b11. Retry
+packets use a packet type field of 0b00.
+
+## Cryptography changes
+
+### Initial Salt
+
+The salt used to derive Initial keys in {{Section 5.2 of QUIC-TLS}} changes to:
 
 ~~~
 initial_salt = 0xa707c203a59b47184a1d62ca570406ea7ae3e5d3
 ~~~
 
-* The labels used in {{QUIC-TLS}} to derive packet protection keys (Section
+### HKDF Labels
+
+The labels used in {{QUIC-TLS}} to derive packet protection keys (Section
 {{Section 5.1 of QUIC-TLS}}{:sectionFormat="bare"}), header protection keys
 (Section {{Section 5.4 of QUIC-TLS}}{:sectionFormat="bare"}), Retry Integrity
 Tag keys (Section {{Section 5.8 of QUIC-TLS}}{:sectionFormat="bare"}), and key
@@ -111,8 +124,10 @@ updates (Section {{Section 6.1 of QUIC-TLS}}{:sectionFormat="bare"}) change from
 versions in Section {{Section 9.6 of QUIC-TLS}}{:sectionFormat="bare"} of that
 document.
 
-* The key and nonce used for the Retry Integrity Tag ({{Section 5.8 of
-QUIC-TLS}}) change to:
+### Retry Integrity Tag
+
+The key and nonce used for the Retry Integrity Tag ({{Section 5.8 of QUIC-TLS}})
+change to:
 
 ~~~
 secret =
@@ -220,7 +235,8 @@ Contact: QUIC WG
 > publication of a final version of this document.
 
 ## since draft-ietf-quic-v2-00
-
+* Expanded requirements for compatible version negotiation
+* Greased the packet type codepoints
 * Random version number
 
 ## since draft-duke-quic-v2-02
