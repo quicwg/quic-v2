@@ -281,6 +281,7 @@ Reference: This Document
 * Greased the packet type codepoints
 * Random version number
 * Clarified requirement to use QUIC-VN
+* Added new ALPN for h3
 
 ## since draft-duke-quic-v2-02
 
