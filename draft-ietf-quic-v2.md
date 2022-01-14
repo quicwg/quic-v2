@@ -221,7 +221,7 @@ All QUIC extensions defined to work with version 1 also work with version 2.
 HTTP/3 can use the ALPN codepoint to discover QUIC versions via the Alt-Svc
 HTTP field {{?RFC7838}}. If different QUIC versions use the same HTTP/3 ALPN, a
 client might discover QUIC support via Alt-Svc on a TCP connection, and then
-try QUIC only to find the server is incompatible. Therefore, HTTP/3 is an
+attempt to use a QUIC version that the server does not support. Therefore, HTTP/3 is an
 exception to the principle that new QUIC versions do not require new ALPN
 codepoints.  
 
