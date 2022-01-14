@@ -240,6 +240,41 @@ Contact: QUIC WG
 
 --- back
 
+# Sample Packet Protection
+
+This section shows examples of packet protection so that implementations can be
+verified incrementally. Samples of initial packets from both client and server
+plus a Retry packet are defined. These packets use an 8-byte client-chosen
+Destination Connection ID of 0x8394c8f03e515708.
+
+## Keys
+
+TBD
+
+## Client Initial {#client-initial}
+
+TBD
+
+## Server Initial
+
+TBD
+
+## Retry
+
+This shows a Retry packet that might be sent in response to the Initial packet
+in {{client-initial}}. The integrity check includes the client-chosen connection
+ID value of 0x8394c8f03e515708, but that value is not included in the final retry
+packet:
+
+~~~
+cf709a50c40008f067a5502a4262b574  6f6b656e5a2b387ebffde81cf437187d
+097b26eb
+~~~
+
+## ChaCha20-Poly1305 Short Header Packet
+
+TBD
+
 # Changelog
 
 > **RFC Editor's Note:**  Please remove this section prior to
@@ -248,6 +283,7 @@ Contact: QUIC WG
 ## since draft-ietf-quic-v2-00
 
 * Expanded requirements for compatible version negotiation
+* Added Retry test vector
 * Greased the packet type codepoints
 * Random version number
 * Clarified requirement to use QUIC-VN
