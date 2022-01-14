@@ -208,11 +208,32 @@ are willing to suffer a round-trip penalty if they are incorrect.
 # Applicability
 
 This version of QUIC provides no change from QUIC version 1 relating to the
-capabilities available to applications. Therefore, all Application Layer
+capabilities available to applications. Therefore, most Application Layer
 Protocol Negotiation (ALPN) ({{?RFC7301}}) codepoints specified to operate over
-QUICv1 can also operate over this version of QUIC.
+QUICv1 can also operate over this version of QUIC. Applications SHOULD NOT
+require new ALPNs for QUICv2 unless there is a specific performance or
+interoperability concern.
 
 All QUIC extensions defined to work with version 1 also work with version 2.
+
+## The HTTP/3 Exception
+
+HTTP/3 can use the ALPN codepoint to discover QUIC versions via the Alt-Svc
+HTTP field {{?RFC7838}}. If different QUIC versions use the same HTTP/3 ALPN, a
+client might discover QUIC support via Alt-Svc on a TCP connection, and then
+try QUIC only to find the server is incompatible. Therefore, HTTP/3 is an
+exception to the principle that new QUIC versions do not require new ALPN
+codepoints.  
+
+Therefore, HTTP/3 servers using QUIC version 2 MUST accept the "h3v2" ALPN for
+QUICv2 connections. Clients SHOULD request this ALPN over QUICv2. Servers MAY
+accept the "h3" ALPN over version 2 to improve compatibility with QUICv2
+clients supporting unmodified applications, but MUST NOT advertise the "h3"
+ALPN via Alt-Svc unless they also support QUIC version 1.
+
+A client request for either ALPN does not prevent a compatible version
+negotiation. As part of the translation of the Client Initial from one version
+to another, the server updates the ALPN accordingly.
 
 # Security Considerations
 
@@ -237,6 +258,15 @@ Specification: This Document
 Change Controller: IETF
 
 Contact: QUIC WG
+
+This document also requests that IANA add the following entry to the TLS
+Application-Layer Protocol Negotiation (ALPN) Protocol IDs registry:
+
+Protocol: HTTP/3 over QUICv2
+
+Identification Sequence: 0x68 0x33 0x76 0x32 ("h3v2")
+
+Reference: This Document
 
 --- back
 
