@@ -225,9 +225,9 @@ try QUIC only to find the server is incompatible. Therefore, HTTP/3 is an
 exception to the principle that new QUIC versions do not require new ALPN
 codepoints.  
 
-Therefore, HTTP/3 servers using QUIC version 2 MUST accept the "h3v2" ALPN for
-QUICv2 connections. Clients SHOULD request this ALPN over QUICv2. Servers MAY
-accept the "h3" ALPN over version 2 to improve compatibility with QUICv2
+Therefore, HTTP/3 servers using QUIC version 2 MUST accept the "h3v2-01" ALPN
+for QUICv2 connections. Clients SHOULD request this ALPN over QUICv2. Servers
+MAY accept the "h3" ALPN over version 2 to improve compatibility with QUICv2
 clients supporting unmodified applications, but MUST NOT advertise the "h3"
 ALPN via Alt-Svc unless they also support QUIC version 1.
 
