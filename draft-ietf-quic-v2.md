@@ -267,8 +267,8 @@ ID value of 0x8394c8f03e515708, but that value is not included in the final retr
 packet:
 
 ~~~
-cf709a50c40008f067a5502a4262b574  6f6b656e5a2b387ebffde81cf437187d
-097b26eb
+cf709a50c40008f067a5502a4262b574  6f6b656e1dc71130cd1ed39d6efcee5c
+85806501
 ~~~
 
 ## ChaCha20-Poly1305 Short Header Packet
