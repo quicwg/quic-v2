@@ -227,7 +227,7 @@ attempt to use a QUIC version that the server does not support. Therefore, HTTP/
 exception to the principle that new QUIC versions do not require new ALPN
 codepoints.  
 
-Therefore, HTTP/3 servers using QUIC version 2 MUST accept the "h3v2-01" ALPN
+Therefore, HTTP/3 servers using QUIC version 2 MUST accept the "h3q2-01" ALPN
 for QUICv2 connections. Clients SHOULD request this ALPN over QUICv2. Servers
 MAY accept the "h3" ALPN over version 2 to improve compatibility with QUICv2
 clients supporting unmodified applications, but MUST NOT advertise the "h3"
@@ -266,7 +266,7 @@ Application-Layer Protocol Negotiation (ALPN) Protocol IDs registry:
 
 Protocol: HTTP/3 over QUICv2
 
-Identification Sequence: 0x68 0x33 0x76 0x32 ("h3v2")
+Identification Sequence: 0x68 0x33 0x71 0x32 ("h3q2")
 
 Reference: This Document
 
