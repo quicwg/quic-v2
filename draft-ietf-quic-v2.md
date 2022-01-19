@@ -272,6 +272,7 @@ quicv2 hp:
 00100f746c7331332071756963763220687000
 
 The initial secret is common:
+
 ~~~
 initial_secret = HKDF-Extract(initial_salt, cid)
     = ddfcb7b82a430b7845210ad64b406977
