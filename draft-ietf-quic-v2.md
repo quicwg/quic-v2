@@ -287,13 +287,13 @@ client_initial_secret
       7575d4a0fb4c27b7c6cb303a338423ae
 
 key = HKDF-Expand-Label(client_initial_secret, "quicv2 key", "", 16)
-    = 95 df 2b e2 e8 d5 49 c8 2e 99 6f c9 33 9f 45 63
+    = 95df2be2e8d549c82e996fc9339f4563
 
 iv  = HKDF-Expand-Label(client_initial_secret, "quicv2 iv", "", 12)
-    = ea 5e 3c 95 f9 33 db 14 b7 02 0a d8
+    = ea5e3c95f933db14b7020ad8
 
 hp  = HKDF-Expand-Label(client_initial_secret, "quicv2 hp", "", 16)
-    = 09 1e fb 73 57 02 44 7d 07 90 8f 65 01 84 57 94
+    = 091efb735702447d07908f6501845794
 ~~~
 
 The secrets for protecting server packets are:
@@ -301,9 +301,8 @@ The secrets for protecting server packets are:
 ~~~
 server_initial_secret
     = HKDF-Expand-Label(initial_secret, "server in", "", 32)
-    = 3c 9b f6 a9 c1 c8 c7 18 19 87 69 67 bd 8b 97 9e fd 98 ec 66 5e df 27 f2 2c 06 e9 84 5b a0 ae 2f
-      3c199828fd139efd216c155ad844cc81
-      fb82fa8d7446fa7d78be803acdda951b
+    = 3c9bf6a9c1c8c71819876967bd8b979e
+      fd98ec665edf27f22c06e9845ba0ae2f
 
 key = HKDF-Expand-Label(server_initial_secret, "quicv2 key", "", 16)
     = 15d5b4d9a2b8916aa39b1bfe574d2aad
@@ -529,7 +528,7 @@ packet = 4cfe4189655e5cd55c41f69080575d7999c25a5bfb
 ## since draft-ietf-quic-v2-00
 
 * Expanded requirements for compatible version negotiation
-* Added Retry test vector
+* Added Initial Key and Retry test vector
 * Greased the packet type codepoints
 * Random version number
 * Clarified requirement to use QUIC-VN
