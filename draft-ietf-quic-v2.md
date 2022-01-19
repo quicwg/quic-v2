@@ -446,9 +446,9 @@ dbcba3f6ea46c5b7684df3548e7ddeb9 c3bf9c73cc3f3bded74b562bfb19fb84
 ## Retry
 
 This shows a Retry packet that might be sent in response to the Initial packet
-in {{client-initial}}. The integrity check includes the client-chosen connection
-ID value of 0x8394c8f03e515708, but that value is not included in the final retry
-packet:
+in {{sample-client-initial}}. The integrity check includes the client-chosen
+connection ID value of 0x8394c8f03e515708, but that value is not included in the
+final retry packet:
 
 ~~~
 cf709a50c40008f067a5502a4262b574  6f6b656e1dc71130cd1ed39d6efcee5c
