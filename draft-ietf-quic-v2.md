@@ -443,8 +443,6 @@ dbcba3f6ea46c5b7684df3548e7ddeb9 c3bf9c73cc3f3bded74b562bfb19fb84
 2158407dd074ee
 ~~~
 
-TBD
-
 ## Retry
 
 This shows a Retry packet that might be sent in response to the Initial packet
