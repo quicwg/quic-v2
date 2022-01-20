@@ -163,8 +163,8 @@ QUIC version 2 uses the same transport parameters to authenticate the Retry as
 QUIC version 1. After switching to a negotiated version after a Retry, the
 server MUST include the relevant transport parameters to validate that the
 server sent the Retry and the connection IDs used in the exchange, as described
-in {{Section 7.3 of QUIC}}. Note that the version of the first Initial and the subsequent Retry
-are not authenticated by transport parameters.  
+in {{Section 7.3 of QUIC}}. Note that the version of the first Initial and the
+subsequent Retry are not authenticated by transport parameters.  
 
 The server SHOULD start sending its Initial packets using the negotiated
 version as soon as it decides to change. Before the server is able to process
@@ -194,7 +194,7 @@ version 0-RTT packets to a connection without additional considerations.
 
 TLS session tickets are specific to the QUIC version of the connection that
 provided them. Clients MUST NOT use a session ticket from a QUICv1 connection
-to initiate a QUICv2 connectoin, or vice versa.
+to initiate a QUICv2 connection, or vice versa.
 
 Servers MAY validate the originating version of any session ticket and reject
 any ticket issued from a different version.
