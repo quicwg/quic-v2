@@ -295,17 +295,17 @@ The secrets for protecting server packets are:
 
 ~~~
 server_initial_secret
-    = HKDF-Expand-Label(initial_secret, "server in","", 32)
+    = HKDF-Expand-Label(initial_secret, "server in", "", 32)
     = 3c9bf6a9c1c8c71819876967bd8b979e
       fd98ec665edf27f22c06e9845ba0ae2f
 
-key = HKDF-Expand-Label(server_initial_secret, "quicv2 key","", 16)
+key = HKDF-Expand-Label(server_initial_secret, "quicv2 key", "", 16)
     = 15d5b4d9a2b8916aa39b1bfe574d2aad
 
-iv  = HKDF-Expand-Label(server_initial_secret, "quicv2 iv","", 12)
+iv  = HKDF-Expand-Label(server_initial_secret, "quicv2 iv", "", 12)
     = a85e7ac31cd275cbb095c626
 
-hp  = HKDF-Expand-Label(server_initial_secret, "quicv2 hp","", 16)
+hp  = HKDF-Expand-Label(server_initial_secret, "quicv2 hp", "", 16)
     = b13861cfadbb9d11ff942dd80c8fc33b
 ~~~
 
@@ -503,7 +503,7 @@ mask   = 97580e32bf
 header = 5558b1c6
 ~~~
 
-The protected packet is the smallest possible packet size of 5 bytes.
+The protected packet is the smallest possible packet size of 21 bytes.
 
 ~~~
 packet = 5558b1c60ae7b6b932bc27d786f4bc2bb20f2162ba
@@ -517,7 +517,7 @@ packet = 5558b1c60ae7b6b932bc27d786f4bc2bb20f2162ba
 ## since draft-ietf-quic-v2-00
 
 * Expanded requirements for compatible version negotiation
-* Added Initial Key and Retry test vector
+* Added test vectors
 * Greased the packet type codepoints
 * Random version number
 * Clarified requirement to use QUIC-VN
