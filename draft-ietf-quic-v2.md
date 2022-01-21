@@ -145,7 +145,9 @@ with clients. In particular, HTTP clients often use Alt-Svc {{?RFC7838}} to
 discover QUIC support. As this mechanism does not currently distinguish between
 QUIC versions, HTTP servers that support multiple versions reduce the
 probability of incompatibility and the cost associated with QUIC version
-negotiation or TCP fallback.
+negotiation or TCP fallback. For example, an origin advertising support for "h3" in Alt-Svc
+SHOULD support QUIC version 1 as it was the original QUIC version used by HTTP/3 and
+therefore some clients will only support that version.
 
 Any QUIC endpoint that supports multiple versions MUST meet the minimum
 requirements described in {{QUIC-VN}} to prevent version downgrade attacks.
