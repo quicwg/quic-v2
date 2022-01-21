@@ -196,9 +196,9 @@ TLS session tickets are specific to the QUIC version of the connection that
 provided them. Clients MUST NOT use a session ticket from a QUICv1 connection
 to initiate a QUICv2 connection, or vice versa.
 
-Servers MUST validate the originating version of any session ticket and not resume from
-any ticket issued from a different version. This results in falling back to a
-full TLS handshake, without 0-RTT.
+Servers MUST validate the originating version of any session ticket and not
+resume from any ticket issued from a different version. This results in falling
+back to a full TLS handshake, without 0-RTT.
 
 After compatible version negotiation, any resulting session ticket
 maps to the negotiated version rather than original one.
