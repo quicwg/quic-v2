@@ -200,7 +200,7 @@ Servers MUST validate the originating version of any session ticket and not resu
 any ticket issued from a different version. This results in falling back to a
 full TLS handshake, without 0-RTT.
 
-Note that during compatible version negotiation, any resulting session ticket
+After compatible version negotiation, any resulting session ticket
 maps to the negotiated version rather than original one.
 
 # Ossification Considerations
