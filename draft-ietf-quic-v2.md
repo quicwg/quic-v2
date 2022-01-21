@@ -139,15 +139,18 @@ nonce = 0x141b99c239b03e785d6a2e9f
 
 # Version Negotiation Considerations
 
-QUIC version 2 endpoints SHOULD also support QUIC version 1, as at the time of
-writing version 1 is far more common and version 2 is not intended to deprecate
-version 1. Any QUIC endpoint that supports multiple versions MUST meet the
-minimum requirements described in {{QUIC-VN}} to prevent version downgrade
-attacks.
+QUIC version 2 endpoints SHOULD also support QUIC version 1, as version 2 is
+both less common than, and not intended to deprecate, version 1. Any QUIC
+endpoint that supports multiple versions MUST meet the minimum requirements
+described in {{QUIC-VN}} to prevent version downgrade attacks.
 
 Note that version 2 meets that document's definition of a compatible version
 with version 1. Therefore, servers can use compatible negotiation to switch a
 connection between the two versions.
+
+A server that can parse version 1, but cannot fully support it, SHOULD use
+compatible negotiation instead of sending a Version Negotiation packet to
+initiate incompatible version negotiation.
 
 ## Compatible Negotiation Requirements
 
