@@ -152,12 +152,8 @@ requirements described in {{QUIC-VN}} to prevent version downgrade attacks.
 
 Note that version 2 meets that document's definition of a compatible version
 with version 1. Therefore, servers can use compatible negotiation to switch a
-connection between the two versions.
-
-A server might fully support version 2 but merely parse Initial packets from
-version 1, or vice versa. Such servers SHOULD use compatible negotiation instead
-of sending a Version Negotiation packet to initiate incompatible version
-negotiation to avoid the delay penalty of the latter.
+connection between the two versions. Endpoints that support both versions
+SHOULD support compatible version negotiation to avoid a round trip.
 
 ## Compatible Negotiation Requirements
 
