@@ -206,7 +206,7 @@ TLS session tickets are specific to the QUIC version of the connection that
 provided them. Clients MUST NOT use a session ticket from a QUICv1 connection
 to initiate a QUICv2 connection, or vice versa.
 
-Servers MUST validate the originating version of any session ticket and not
+Servers SHOULD validate the originating version of any session ticket and not
 resume from any ticket issued from a different version. This results in falling
 back to a full TLS handshake, without 0-RTT.
 
@@ -544,6 +544,7 @@ packet = 5558b1c60ae7b6b932bc27d786f4bc2bb20f2162ba
 * Greased the packet type codepoints
 * Random version number
 * Clarified requirement to use QUIC-VN
+* Banned use of resumption tokens across versions
 
 ## since draft-duke-quic-v2-02
 
