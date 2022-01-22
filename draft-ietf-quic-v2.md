@@ -173,8 +173,8 @@ QUIC version 2 uses the same transport parameters to authenticate the Retry as
 QUIC version 1. After switching to a negotiated version after a Retry, the
 server MUST include the relevant transport parameters to validate that the
 server sent the Retry and the connection IDs used in the exchange, as described
-in {{Section 7.3 of QUIC}}. Note that the version of the first Initial and the subsequent Retry
-are not authenticated by transport parameters.  
+in {{Section 7.3 of QUIC}}. Note that the version of the first Initial and the
+subsequent Retry are not authenticated by transport parameters.  
 
 The server SHOULD start sending its Initial packets using the negotiated
 version as soon as it decides to change. Before the server is able to process
@@ -199,6 +199,19 @@ VERSION_NEGOTIATION_ERROR.
 The client MUST NOT send 0-RTT packets using the negotiated version, even after
 processing a packet of that version from the server. Servers can apply original
 version 0-RTT packets to a connection without additional considerations.
+
+# TLS Resumption
+
+TLS session tickets are specific to the QUIC version of the connection that
+provided them. Clients MUST NOT use a session ticket from a QUICv1 connection
+to initiate a QUICv2 connection, or vice versa.
+
+Servers SHOULD validate the originating version of any session ticket and not
+resume from any ticket issued from a different version. This results in falling
+back to a full TLS handshake, without 0-RTT.
+
+After compatible version negotiation, any resulting session ticket
+maps to the negotiated version rather than original one.
 
 # Ossification Considerations
 
@@ -531,6 +544,7 @@ packet = 5558b1c60ae7b6b932bc27d786f4bc2bb20f2162ba
 * Greased the packet type codepoints
 * Random version number
 * Clarified requirement to use QUIC-VN
+* Banned use of resumption tokens across versions
 
 ## since draft-duke-quic-v2-02
 
