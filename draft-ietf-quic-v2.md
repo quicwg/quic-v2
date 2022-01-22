@@ -139,13 +139,23 @@ nonce = 0x141b99c239b03e785d6a2e9f
 
 # Version Negotiation Considerations
 
-QUIC version 2 endpoints SHOULD also support QUIC version 1. Any QUIC endpoint
-that supports multiple versions MUST meet the minimum requirements described in
-{{QUIC-VN}} to prevent version downgrade attacks.
+QUIC version 2 is not intended to deprecate version 1. Endpoints that support
+version 2 might continue support for version 1 to maximize compatibility
+with clients. In particular, HTTP clients often use Alt-Svc {{?RFC7838}} to
+discover QUIC support. As this mechanism does not currently distinguish between
+QUIC versions, HTTP servers that support multiple versions reduce the
+probability of incompatibility and the cost associated with QUIC version
+negotiation or TCP fallback. For example, an origin advertising support for "h3" in Alt-Svc
+SHOULD support QUIC version 1 as it was the original QUIC version used by HTTP/3 and
+therefore some clients will only support that version.
+
+Any QUIC endpoint that supports multiple versions MUST meet the minimum
+requirements described in {{QUIC-VN}} to prevent version downgrade attacks.
 
 Note that version 2 meets that document's definition of a compatible version
-with version 1. Therefore, v2-capable servers MUST use compatible version
-negotiation unless they do not support version 1.
+with version 1. Therefore, servers can use compatible negotiation to switch a
+connection between the two versions. Endpoints that support both versions
+SHOULD support compatible version negotiation to avoid a round trip.
 
 ## Compatible Negotiation Requirements
 
@@ -218,7 +228,7 @@ Clients interested in combating firewall ossification can initiate a connection
 using version 2 if they are either reasonably certain the server supports it, or
 are willing to suffer a round-trip penalty if they are incorrect.
 
-# Applicability
+# Applicability {#applicability}
 
 This version of QUIC provides no change from QUIC version 1 relating to the
 capabilities available to applications. Therefore, all Application Layer
