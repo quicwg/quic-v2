@@ -136,6 +136,64 @@ key = 0xba858dc7b43de5dbf87617ff4ab253db
 nonce = 0x141b99c239b03e785d6a2e9f
 ~~~
 
+### Packet Format
+QUIC version 2 provide an option field to insert some custom defined information to
+QUIC packet. For example, it hard for a QUIC server to get the real client IP address
+when it work behind a NAT device, the NAT device can solve this problem by adding real
+client IP address into option field. Another case, for a long-distance communication
+scenario, a user can detect the network conditions of each link in the global network
+topology in advance, and then select the best link for transmission. With the optional
+field, the user can write the forwarding list into it, and the intermediate node
+of the network can forward directly based on this.
+
+~~~
+Optional Field {
+  Optional Item Num(8) = x,
+  Optional Item[x]
+}
+~~~
+
+~~~
+Optional Item {
+  Type(3),
+  Length(5),
+  Value(0..32)
+}
+~~~
+
+And the format of long header packets({{Section 17.2 of QUIC}}) and short header
+packets({{Section 17.3 of QUIC}}) are depicted below:
+
+~~~
+Long Header Packet {
+  Header Form (1) = 1,
+  Fixed Bit (1) = 1,
+  Long Packet Type (2),
+  Type-Specific Bits (4),
+  Version (32),
+  Optional Field(..),
+  Destination Connection ID Length (8),
+  Destination Connection ID (0..160),
+  Source Connection ID Length (8),
+  Source Connection ID (0..160),
+  Type-Specific Payload (..),
+}
+~~~
+
+~~~
+1-RTT Packet {
+  Header Form (1) = 0,
+  Fixed Bit (1) = 1,
+  Spin Bit (1),
+  Reserved Bits (2),
+  Key Phase (1),
+  Packet Number Length (2),
+  Optional Field(..),
+  Destination Connection ID (0..160),
+  Packet Number (8..32),
+  Packet Payload (8..),
+}
+~~~
 
 # Version Negotiation Considerations
 
@@ -174,7 +232,7 @@ QUIC version 1. After switching to a negotiated version after a Retry, the
 server MUST include the relevant transport parameters to validate that the
 server sent the Retry and the connection IDs used in the exchange, as described
 in {{Section 7.3 of QUIC}}. Note that the version of the first Initial and the
-subsequent Retry are not authenticated by transport parameters.  
+subsequent Retry are not authenticated by transport parameters.
 
 The server SHOULD start sending its Initial packets using the negotiated
 version as soon as it decides to change. Before the server is able to process
@@ -189,7 +247,7 @@ packet with the negotiated version.
 Both endpoints MUST send Handshake or 1-RTT packets using the negotiated
 version. An endpoint MUST drop packets using any other version. Endpoints have
 no need to generate the keying material that would allow them to decrypt or
-authenticate these packets. 
+authenticate these packets.
 
 If the server's version_information transport parameter does not contain a
 Chosen Version field equivalent to the version in the server's Handshake packet
