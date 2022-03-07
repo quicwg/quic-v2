@@ -538,6 +538,9 @@ packet = 5558b1c60ae7b6b932bc27d786f4bc2bb20f2162ba
 > **RFC Editor's Note:**  Please remove this section prior to
 > publication of a final version of this document.
 
+## since draft-ietf-quic-v2-01
+* version-info transport parameter required for all v2 endpoints
+
 ## since draft-ietf-quic-v2-00
 
 * Expanded requirements for compatible version negotiation
