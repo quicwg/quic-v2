@@ -145,9 +145,9 @@ with clients. In particular, HTTP clients often use Alt-Svc {{?RFC7838}} to
 discover QUIC support. As this mechanism does not currently distinguish between
 QUIC versions, HTTP servers that support multiple versions reduce the
 probability of incompatibility and the cost associated with QUIC version
-negotiation or TCP fallback. For example, an origin advertising support for "h3" in Alt-Svc
-SHOULD support QUIC version 1 as it was the original QUIC version used by HTTP/3 and
-therefore some clients will only support that version.
+negotiation or TCP fallback. For example, an origin advertising support for "h3"
+in Alt-Svc SHOULD support QUIC version 1 as it was the original QUIC version
+used by HTTP/3 and therefore some clients will only support that version.
 
 Any QUIC endpoint that supports multiple versions MUST meet the minimum
 requirements described in {{QUIC-VN}} to prevent version downgrade attacks.
@@ -233,7 +233,9 @@ are willing to suffer a round-trip penalty if they are incorrect.
 This version of QUIC provides no change from QUIC version 1 relating to the
 capabilities available to applications. Therefore, all Application Layer
 Protocol Negotiation (ALPN) ({{?RFC7301}}) codepoints specified to operate over
-QUICv1 can also operate over this version of QUIC.
+QUICv1 can also operate over this version of QUIC. In particular, both the "h3"
+{{?I-D.ietf-quic-http}} and "doq" {{?I-D.ietf-dprive-dnsoquic}} ALPNs can
+operate over QUICv2.
 
 All QUIC extensions defined to work with version 1 also work with version 2.
 
@@ -536,6 +538,10 @@ packet = 5558b1c60ae7b6b932bc27d786f4bc2bb20f2162ba
 
 > **RFC Editor's Note:**  Please remove this section prior to
 > publication of a final version of this document.
+
+## since draft-ietf-quic-v2-01
+
+* Explicitly list known ALPN compatibility
 
 ## since draft-ietf-quic-v2-00
 
