@@ -200,7 +200,7 @@ The client MUST NOT send 0-RTT packets using the negotiated version, even after
 processing a packet of that version from the server. Servers can apply original
 version 0-RTT packets to a connection without additional considerations.
 
-# TLS Resumption and NEW_TOKEN tokens
+# TLS Resumption and NEW_TOKEN Tokens
 
 TLS session tickets and NEW_TOKEN tokens are specific to the QUIC version of the
 connection that provided them. Clients MUST NOT use a session ticket or token
