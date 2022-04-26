@@ -149,8 +149,9 @@ negotiation or TCP fallback. For example, an origin advertising support for "h3"
 in Alt-Svc SHOULD support QUIC version 1 as it was the original QUIC version
 used by HTTP/3 and therefore some clients will only support that version.
 
-Any QUIC endpoint that supports QUIC version 2 MUST meet the minimum
-requirements described in {{QUIC-VN}} to prevent version downgrade attacks.
+Any QUIC endpoint that supports QUIC version 2 MUST send, process, and validate
+the version_information transport parameter specified in {{QUIC-VN}} to prevent
+version downgrade attacks.
 
 Note that version 2 meets that document's definition of a compatible version
 with version 1, and version 1 is compatible with version 2. Therefore, servers
