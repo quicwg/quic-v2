@@ -200,15 +200,17 @@ The client MUST NOT send 0-RTT packets using the negotiated version, even after
 processing a packet of that version from the server. Servers can apply original
 version 0-RTT packets to a connection without additional considerations.
 
-# TLS Resumption
+# TLS Resumption and NEW_TOKEN tokens
 
-TLS session tickets are specific to the QUIC version of the connection that
-provided them. Clients MUST NOT use a session ticket from a QUICv1 connection
-to initiate a QUICv2 connection, or vice versa.
+TLS session tickets and NEW_TOKEN tokens are specific to the QUIC version of the
+connection that provided them. Clients MUST NOT use a session ticket or token
+from a QUICv1 connection to initiate a QUICv2 connection, or vice versa.
 
-Servers SHOULD validate the originating version of any session ticket and not
-resume from any ticket issued from a different version. This results in falling
-back to a full TLS handshake, without 0-RTT.
+Servers SHOULD validate the originating version of any session ticket or token
+and not accept one issued from a different version. A rejected ticket results in
+falling back to a full TLS handshake, without 0-RTT. A rejected token results in
+the client address remaining unverified, which limits the amount of data the
+server can send.
 
 After compatible version negotiation, any resulting session ticket
 maps to the negotiated version rather than original one.
@@ -541,6 +543,7 @@ packet = 5558b1c60ae7b6b932bc27d786f4bc2bb20f2162ba
 
 ## since draft-ietf-quic-v2-01
 
+* Ban use of NEW_TOKEN tokens across versions
 * Explicitly list known ALPN compatibility
 
 ## since draft-ietf-quic-v2-00
