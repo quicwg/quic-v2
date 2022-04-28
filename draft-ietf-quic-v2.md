@@ -203,11 +203,11 @@ version 0-RTT packets to a connection without additional considerations.
 # TLS Resumption and NEW_TOKEN Tokens
 
 TLS session tickets and NEW_TOKEN tokens are specific to the QUIC version of the
-connection that provided them. Clients MUST NOT use a session ticket or token
+connection that provided them. Clients SHOULD NOT use a session ticket or token
 from a QUICv1 connection to initiate a QUICv2 connection, or vice versa.
 
-Servers SHOULD validate the originating version of any session ticket or token
-and not accept one issued from a different version. A rejected ticket results in
+Servers MUST validate the originating version of any session ticket or token and
+not accept one issued from a different version. A rejected ticket results in
 falling back to a full TLS handshake, without 0-RTT. A rejected token results in
 the client address remaining unverified, which limits the amount of data the
 server can send.
