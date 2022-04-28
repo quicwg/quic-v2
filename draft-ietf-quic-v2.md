@@ -149,13 +149,15 @@ negotiation or TCP fallback. For example, an origin advertising support for "h3"
 in Alt-Svc SHOULD support QUIC version 1 as it was the original QUIC version
 used by HTTP/3 and therefore some clients will only support that version.
 
-Any QUIC endpoint that supports multiple versions MUST meet the minimum
-requirements described in {{QUIC-VN}} to prevent version downgrade attacks.
+Any QUIC endpoint that supports QUIC version 2 MUST send, process, and validate
+the version_information transport parameter specified in {{QUIC-VN}} to prevent
+version downgrade attacks.
 
 Note that version 2 meets that document's definition of a compatible version
-with version 1. Therefore, servers can use compatible negotiation to switch a
-connection between the two versions. Endpoints that support both versions
-SHOULD support compatible version negotiation to avoid a round trip.
+with version 1, and version 1 is compatible with version 2. Therefore, servers
+can use compatible negotiation to switch a connection between the two versions.
+Endpoints that support both versions SHOULD support compatible version
+negotiation to avoid a round trip.
 
 ## Compatible Negotiation Requirements
 
@@ -544,6 +546,7 @@ packet = 5558b1c60ae7b6b932bc27d786f4bc2bb20f2162ba
 ## since draft-ietf-quic-v2-01
 
 * Ban use of NEW_TOKEN tokens across versions
+* version-info transport parameter required for all v2 endpoints
 * Explicitly list known ALPN compatibility
 
 ## since draft-ietf-quic-v2-00
