@@ -51,7 +51,7 @@ contains the draft:
 # Introduction
 
 QUIC {{QUIC}} has numerous extension points, including the version number
-that occupies the second through fifth byte of every long header (see
+that occupies the second through fifth bytes of every long header (see
 {{?RFC8999}}). If experimental versions are rare, and QUIC version 1 constitutes
 the vast majority of QUIC traffic, there is the potential for middleboxes to
 ossify on the version bytes always being 0x00000001.
