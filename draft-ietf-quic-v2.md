@@ -94,7 +94,7 @@ The Version field of long headers is 0x709a50c4.
 
 ## Long Header Packet Types
 
-All version 2 long header packet types are different:
+All version 2 long header packet types are different. The Type field values are:
 
 * Initial: 0b01
 * 0-RTT: 0b10
