@@ -60,7 +60,7 @@ In QUIC version 1, Initial packets are encrypted with the version-specific salt
 as described in Section 5.2 of [QUIC-TLS]. Protecting Initial packets in this
 way allows observers to inspect their contents, which includes the TLS Client
 Hello or Server Hello messages. Again, there is the potential for middleboxes to
-ossify on the 1 key derivation and packet formats.
+ossify on the version 1 key derivation and packet formats.
 
 Finally {{!QUIC-VN=I-D.ietf-quic-version-negotiation}} provides two mechanisms
 for endpoints to negotiate the QUIC version to use. The "incompatible" version
