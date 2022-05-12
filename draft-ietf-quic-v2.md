@@ -51,10 +51,10 @@ contains the draft:
 # Introduction
 
 QUIC {{QUIC}} has numerous extension points, including the version number
-that occupies the second through fifth octets of every long header (see
+that occupies the second through fifth bytes of every long header (see
 {{?QUIC-INVARIANTS=RFC8999}}). If experimental versions are rare, and QUIC
 version 1 constitutes the vast majority of QUIC traffic, there is the potential
-for middleboxes to ossify on the version octets always being 0x00000001.
+for middleboxes to ossify on the version bytes always being 0x00000001.
 
 In QUIC version 1, Initial packets are encrypted with the version-specific salt
 as described in Section 5.2 of [QUIC-TLS]. Protecting Initial packets in this
