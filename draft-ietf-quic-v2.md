@@ -52,14 +52,15 @@ contains the draft:
 
 QUIC {{QUIC}} has numerous extension points, including the version number
 that occupies the second through fifth bytes of every long header (see
-{{?RFC8999}}). If experimental versions are rare, and QUIC version 1 constitutes
-the vast majority of QUIC traffic, there is the potential for middleboxes to
-ossify on the version bytes always being 0x00000001.
+{{?QUIC-INVARIANTS=RFC8999}}). If experimental versions are rare, and QUIC
+version 1 constitutes the vast majority of QUIC traffic, there is the potential
+for middleboxes to ossify on the version bytes always being 0x00000001.
 
-Furthermore, version 1 Initial packets are encrypted with keys derived from a
-universally known salt, which allow observers to inspect the contents of these
-packets, which include the TLS Client Hello and Server Hello messages. Again,
-middleboxes may ossify on the version 1 key derivation and packet formats.
+In QUIC version 1, Initial packets are encrypted with the version-specific salt
+as described in Section 5.2 of [QUIC-TLS]. Protecting Initial packets in this
+way allows observers to inspect their contents, which includes the TLS Client
+Hello or Server Hello messages. Again, there is the potential for middleboxes to
+ossify on the version 1 key derivation and packet formats.
 
 Finally {{!QUIC-VN=I-D.ietf-quic-version-negotiation}} provides two mechanisms
 for endpoints to negotiate the QUIC version to use. The "incompatible" version
@@ -75,32 +76,30 @@ some crypto derivation functions to enforce full key separation. Any endpoint
 that supports two versions needs to implement version negotiation to protect
 against downgrade attacks.
 
-{{?I-D.duke-quic-version-aliasing}} is a more robust, but much more complicated,
-proposal to address these ossification problems. By design, it requires
-incompatible version negotiation. QUICv2 enables exercise of compatible version
-negotiation mechanism.
-
 # Conventions
 
 The key words "MUST", "MUST NOT", "REQUIRED", "SHALL", "SHALL NOT", "SHOULD",
 "SHOULD NOT", "RECOMMENDED", "MAY", and "OPTIONAL" in this document are to be
 interpreted as described in RFC 2119 {{?RFC2119}}.
 
-# Changes from QUIC Version 1
+# Differences with QUIC Version 1
 
 QUIC version 2 endpoints MUST implement the QUIC version 1 specification as
-described in {{QUIC}}, {{QUIC-TLS}}, and {{!RFC9002}}, with the following
-changes.
+described in {{QUIC}}, {{QUIC-TLS}}, and {{!RFC9002}}. However, the following
+differences apply in version 2.
 
 ## Version Field
 
-The version field of long headers is 0x709a50c4.
+The Version field of long headers is 0x709a50c4.
 
 ## Long Header Packet Types
 
-Initial packets use a packet type field of 0b01. 0-RTT packets use a packet
-type field of 0b10. Handshake packets use a packet type field of 0b11. Retry
-packets use a packet type field of 0b00.
+All version 2 long header packet types are different. The Type field values are:
+
+* Initial: 0b01
+* 0-RTT: 0b10
+* Handshake: 0b11
+* Retry: 0b00
 
 ## Cryptography changes
 
@@ -206,7 +205,8 @@ version 0-RTT packets to a connection without additional considerations.
 
 TLS session tickets and NEW_TOKEN tokens are specific to the QUIC version of the
 connection that provided them. Clients SHOULD NOT use a session ticket or token
-from a QUICv1 connection to initiate a QUICv2 connection, or vice versa.
+from a QUIC version 1 connection to initiate a QUIC version 2 connection, or vice
+versa.
 
 Servers MUST validate the originating version of any session ticket or token and
 not accept one issued from a different version. A rejected ticket results in
@@ -220,9 +220,9 @@ maps to the negotiated version rather than original one.
 # Ossification Considerations
 
 QUIC version 2 provides protection against some forms of ossification. Devices
-that assume that all long headers will contain encode version 1, or that the
-version 1 Initial key derivation formula will remain version-invariant, will not
-correctly process version 2 packets.
+that assume that all long headers will encode version 1, or that the version 1
+Initial key derivation formula will remain version-invariant, will not correctly
+process version 2 packets.
 
 However, many middleboxes such as firewalls focus on the first packet in a
 connection, which will often remain in the version 1 format due to the
@@ -237,9 +237,9 @@ are willing to suffer a round-trip penalty if they are incorrect.
 This version of QUIC provides no change from QUIC version 1 relating to the
 capabilities available to applications. Therefore, all Application Layer
 Protocol Negotiation (ALPN) ({{?RFC7301}}) codepoints specified to operate over
-QUICv1 can also operate over this version of QUIC. In particular, both the "h3"
-{{?I-D.ietf-quic-http}} and "doq" {{?I-D.ietf-dprive-dnsoquic}} ALPNs can
-operate over QUICv2.
+QUIC version 1 can also operate over this version of QUIC. In particular, both
+the "h3" {{?I-D.ietf-quic-http}} and "doq" {{?I-D.ietf-dprive-dnsoquic}} ALPNs
+can operate over QUIC version 2.
 
 All QUIC extensions defined to work with version 1 also work with version 2.
 
@@ -542,6 +542,10 @@ packet = 5558b1c60ae7b6b932bc27d786f4bc2bb20f2162ba
 
 > **RFC Editor's Note:**  Please remove this section prior to
 > publication of a final version of this document.
+
+## since draft-ietf-quic-v2-02
+
+* Editorial comments from Lucas Pardue
 
 ## since draft-ietf-quic-v2-01
 
