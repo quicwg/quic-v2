@@ -90,7 +90,7 @@ differences apply in version 2.
 
 ## Version Field
 
-The version field of long headers is 0x709a50c4.
+The Version field of long headers is 0x709a50c4.
 
 ## Long Header Packet Types
 
