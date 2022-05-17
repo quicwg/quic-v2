@@ -3,7 +3,8 @@ title: QUIC Version 2
 abbrev: QUICv2
 docname: draft-ietf-quic-v2-latest
 category: std
-ipr: trust200902
+v: 3
+submissiontype: IETF
 area: "Transport"
 workgroup: "QUIC"
 venue:
@@ -13,9 +14,6 @@ venue:
   arch: "https://mailarchive.ietf.org/arch/browse/quic/"
   github: "quicwg/quic-v2"
   latest: "https://quicwg.org/quic-v2/draft-ietf-quic-v2.html"
-
-stand_alone: yes
-pi: [toc, sortrefs, symrefs, docmapping]
 
 author:
   -
@@ -57,7 +55,7 @@ version 1 constitutes the vast majority of QUIC traffic, there is the potential
 for middleboxes to ossify on the version bytes always being 0x00000001.
 
 In QUIC version 1, Initial packets are encrypted with the version-specific salt
-as described in Section 5.2 of [QUIC-TLS]. Protecting Initial packets in this
+as described in {{Section 5.2 of QUIC-TLS}}. Protecting Initial packets in this
 way allows observers to inspect their contents, which includes the TLS Client
 Hello or Server Hello messages. Again, there is the potential for middleboxes to
 ossify on the version 1 key derivation and packet formats.
@@ -78,9 +76,7 @@ against downgrade attacks.
 
 # Conventions
 
-The key words "MUST", "MUST NOT", "REQUIRED", "SHALL", "SHALL NOT", "SHOULD",
-"SHOULD NOT", "RECOMMENDED", "MAY", and "OPTIONAL" in this document are to be
-interpreted as described in RFC 2119 {{?RFC2119}}.
+{::boilerplate bcp14-tagged}
 
 # Differences with QUIC Version 1
 
