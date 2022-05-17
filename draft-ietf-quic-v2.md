@@ -175,7 +175,7 @@ QUIC version 1. After switching to a negotiated version after a Retry, the
 server MUST include the relevant transport parameters to validate that the
 server sent the Retry and the connection IDs used in the exchange, as described
 in {{Section 7.3 of QUIC}}. Note that the version of the first Initial and the
-subsequent Retry are not authenticated by transport parameters.  
+subsequent Retry are not authenticated by transport parameters.
 
 The server SHOULD start sending its Initial packets using the negotiated
 version as soon as it decides to change. Before the server is able to process
@@ -190,7 +190,7 @@ packet with the negotiated version.
 Both endpoints MUST send Handshake or 1-RTT packets using the negotiated
 version. An endpoint MUST drop packets using any other version. Endpoints have
 no need to generate the keying material that would allow them to decrypt or
-authenticate these packets. 
+authenticate these packets.
 
 If the server's version_information transport parameter does not contain a
 Chosen Version field equivalent to the version in the server's Handshake packet
@@ -241,7 +241,8 @@ QUIC version 1 can also operate over this version of QUIC. In particular, both
 the "h3" {{?I-D.ietf-quic-http}} and "doq" {{?I-D.ietf-dprive-dnsoquic}} ALPNs
 can operate over QUIC version 2.
 
-All QUIC extensions defined to work with version 1 also work with version 2.
+Unless otherwise stated, all QUIC extensions defined to work with version 1 also
+work with version 2.
 
 # Security Considerations
 
