@@ -139,8 +139,8 @@ nonce = 0x141b99c239b03e785d6a2e9f
 # Version Negotiation Considerations
 
 QUIC version 2 is not intended to deprecate version 1. Endpoints that support
-version 2 might continue support for version 1 to maximize compatibility
-with clients. In particular, HTTP clients often use Alt-Svc {{?RFC7838}} to
+version 2 might continue support for version 1 to maximize compatibility with
+other endpoints. In particular, HTTP clients often use Alt-Svc {{?RFC7838}} to
 discover QUIC support. As this mechanism does not currently distinguish between
 QUIC versions, HTTP servers that support multiple versions reduce the
 probability of incompatibility and the cost associated with QUIC version
