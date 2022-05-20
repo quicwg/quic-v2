@@ -62,7 +62,7 @@ ossify on the version 1 key derivation and packet formats.
 
 Finally {{!QUIC-VN=I-D.ietf-quic-version-negotiation}} provides two mechanisms
 for endpoints to negotiate the QUIC version to use. The "incompatible" version
-negotiation method can support switching from any initial QUIC version to any
+negotiation method can support switching from any QUIC version to any
 other version with full generality, at the cost of an additional round-trip at
 the start of the connection. "Compatible" version negotiation eliminates the
 round-trip penalty but levies some restrictions on how much the two versions can
