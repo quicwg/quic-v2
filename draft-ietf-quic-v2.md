@@ -537,10 +537,21 @@ The protected packet is the smallest possible packet size of 21 bytes.
 packet = 5558b1c60ae7b6b932bc27d786f4bc2bb20f2162ba
 ~~~
 
+# Acknowledgments
+
+The author would like to thank Lucas Pardue, David Schinazi, and Martin Thomson
+for their helpful suggestions.
+
 # Changelog
 
 > **RFC Editor's Note:**  Please remove this section prior to
 > publication of a final version of this document.
+
+## since draft-ietf-quic-v2-03
+
+* a v2 session ticket is an indication of v2 support
+* a v1-only extension is theoretically possible
+* editorial fixes
 
 ## since draft-ietf-quic-v2-02
 
