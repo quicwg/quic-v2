@@ -170,8 +170,7 @@ QUIC version 2 uses the same transport parameters to authenticate the Retry as
 QUIC version 1. After switching to a negotiated version after a Retry, the
 server MUST include the relevant transport parameters to validate that the
 server sent the Retry and the connection IDs used in the exchange, as described
-in {{Section 7.3 of QUIC}}. Note that the version of the first Initial and the
-subsequent Retry are not authenticated by transport parameters.
+in {{Section 7.3 of QUIC}}.
 
 The server SHOULD start sending its Initial packets using the negotiated
 version as soon as it decides to change. Before the server is able to process
