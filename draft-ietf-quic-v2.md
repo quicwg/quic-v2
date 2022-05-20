@@ -36,13 +36,8 @@ vectors and exercise the version negotiation framework. It also serves as a
 template for the minimum changes in any future version of QUIC.
 
 Note that "version 2" is an informal name for this proposal that indicates it
-is the second standards-track QUIC version. The protocol specified here will
-receive a version number other than 2 from IANA.
-
-Discussion of this work is encouraged to happen on the QUIC IETF
-mailing list [](quic@ietf.org) or on the GitHub repository which
-contains the draft:
-[](https://github.com/quicwg/quic-v2).
+is the second standards-track QUIC version. The protocol specified here uses a
+version number other than 2 in the wire image.
 
 --- middle
 
@@ -80,12 +75,18 @@ needs to implement version negotiation to protect against downgrade attacks.
 # Differences with QUIC Version 1
 
 QUIC version 2 endpoints MUST implement the QUIC version 1 specification as
-described in {{QUIC}}, {{QUIC-TLS}}, and {{!RFC9002}}. However, the following
-differences apply in version 2.
+described in {{QUIC}}, {{QUIC-TLS}}, and {{!QUIC-LOSSRECOVERY=RFC9002}}.
+However, the following differences apply in version 2.
 
 ## Version Field
 
 The Version field of long headers is 0x709a50c4.
+
+> **RFC Editor's Note:**  Please remove the sentence below prior to publication
+> of a final version of this document.
+
+This version number will not change in subsequent versions of this draft,
+unless there is a behavior change that breaks compatibility.
 
 ## Long Header Packet Types
 
@@ -186,11 +187,6 @@ Both endpoints MUST send Handshake or 1-RTT packets using the negotiated
 version. An endpoint MUST drop packets using any other version. Endpoints have
 no need to generate the keying material that would allow them to decrypt or
 authenticate these packets.
-
-If the server's version_information transport parameter does not contain a
-Chosen Version field equivalent to the version in the server's Handshake packet
-headers, the client MUST terminate the connection with a
-VERSION_NEGOTIATION_ERROR.
 
 The client MUST NOT send 0-RTT packets using the negotiated version, even after
 processing a packet of that version from the server. Servers can apply original
