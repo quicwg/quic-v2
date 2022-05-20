@@ -236,8 +236,8 @@ This version of QUIC provides no change from QUIC version 1 relating to the
 capabilities available to applications. Therefore, all Application Layer
 Protocol Negotiation (ALPN) ({{?RFC7301}}) codepoints specified to operate over
 QUIC version 1 can also operate over this version of QUIC. In particular, both
-the "h3" {{?I-D.ietf-quic-http}} and "doq" {{?I-D.ietf-dprive-dnsoquic}} ALPNs
-can operate over QUIC version 2.
+the "h3" {{?I-D.ietf-quic-http}} and "doq" {{?RFC9250}} ALPNs can operate over
+QUIC version 2.
 
 Unless otherwise stated, all QUIC extensions defined to work with version 1 also
 work with version 2.
