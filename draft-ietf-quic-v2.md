@@ -85,7 +85,7 @@ The Version field of long headers is 0x709a50c4.
 > **RFC Editor's Note:**  Please remove the sentence below prior to publication
 > of a final version of this document.
 
-This version number will not change in subseqeuent versions of this draft,
+This version number will not change in subsequent versions of this draft,
 unless there is a behavior change that breaks compatibility.
 
 ## Long Header Packet Types
