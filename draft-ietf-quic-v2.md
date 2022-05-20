@@ -243,7 +243,8 @@ QUIC version 1 can also operate over this version of QUIC. In particular, both
 the "h3" {{?I-D.ietf-quic-http}} and "doq" {{?I-D.ietf-dprive-dnsoquic}} ALPNs
 can operate over QUIC version 2.
 
-All QUIC extensions defined to work with version 1 also work with version 2.
+Unless otherwise stated, all QUIC extensions defined to work with version 1 also
+work with version 2.
 
 # Security Considerations
 
