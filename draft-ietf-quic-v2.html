@@ -1303,7 +1303,7 @@ appear in all capitals, as shown here.<a href="#section-2-1" class="pilcrow">¶<
 <a href="#section-3" class="section-number selfRef">3. </a><a href="#name-differences-with-quic-versi" class="section-name selfRef">Differences with QUIC Version 1</a>
       </h2>
 <p id="section-3-1">QUIC version 2 endpoints <span class="bcp14">MUST</span> implement the QUIC version 1 specification as
-described in <span>[<a href="#QUIC" class="xref">QUIC</a>]</span>, <span>[<a href="#QUIC-TLS" class="xref">QUIC-TLS</a>]</span>, and <span>[<a href="#QUIC-LOSSRECOVERY" class="xref">QUIC-LOSSRECOVERY</a>]</span>.
+described in <span>[<a href="#QUIC" class="xref">QUIC</a>]</span>, <span>[<a href="#QUIC-TLS" class="xref">QUIC-TLS</a>]</span>, and <span>[<a href="#QUIC-RECOVERY" class="xref">QUIC-RECOVERY</a>]</span>.
 However, the following differences apply in version 2.<a href="#section-3-1" class="pilcrow">¶</a></p>
 <div id="version-field">
 <section id="section-3.1">
@@ -1500,7 +1500,7 @@ support cannot be guaranteed.<a href="#section-6-3" class="pilcrow">¶</a></p>
 capabilities available to applications. Therefore, all Application Layer
 Protocol Negotiation (ALPN) (<span>[<a href="#RFC7301" class="xref">RFC7301</a>]</span>) codepoints specified to operate over
 QUIC version 1 can also operate over this version of QUIC. In particular, both
-the "h3" <span>[<a href="#I-D.ietf-quic-http" class="xref">I-D.ietf-quic-http</a>]</span> and "doq" <span>[<a href="#RFC9250" class="xref">RFC9250</a>]</span> ALPNs can operate over
+the "h3" <span>[<a href="#H3" class="xref">HTTP/3</a>]</span> and "doq" <span>[<a href="#RFC9250" class="xref">RFC9250</a>]</span> ALPNs can operate over
 QUIC version 2.<a href="#section-7-1" class="pilcrow">¶</a></p>
 <p id="section-7-2">Unless otherwise stated, all QUIC extensions defined to work with version 1 also
 work with version 2.<a href="#section-7-2" class="pilcrow">¶</a></p>
@@ -1545,7 +1545,7 @@ registry:<a href="#section-9-1" class="pilcrow">¶</a></p>
         <dd>
 <span class="refAuthor">Iyengar, J., Ed.</span> and <span class="refAuthor">M. Thomson, Ed.</span>, <span class="refTitle">"QUIC: A UDP-Based Multiplexed and Secure Transport"</span>, <span class="seriesInfo">RFC 9000</span>, <span class="seriesInfo">DOI 10.17487/RFC9000</span>, <time datetime="2021-05" class="refDate">May 2021</time>, <span>&lt;<a href="https://www.rfc-editor.org/rfc/rfc9000">https://www.rfc-editor.org/rfc/rfc9000</a>&gt;</span>. </dd>
 <dd class="break"></dd>
-<dt id="QUIC-LOSSRECOVERY">[QUIC-LOSSRECOVERY]</dt>
+<dt id="QUIC-RECOVERY">[QUIC-RECOVERY]</dt>
         <dd>
 <span class="refAuthor">Iyengar, J., Ed.</span> and <span class="refAuthor">I. Swett, Ed.</span>, <span class="refTitle">"QUIC Loss Detection and Congestion Control"</span>, <span class="seriesInfo">RFC 9002</span>, <span class="seriesInfo">DOI 10.17487/RFC9002</span>, <time datetime="2021-05" class="refDate">May 2021</time>, <span>&lt;<a href="https://www.rfc-editor.org/rfc/rfc9002">https://www.rfc-editor.org/rfc/rfc9002</a>&gt;</span>. </dd>
 <dd class="break"></dd>
@@ -1572,9 +1572,9 @@ registry:<a href="#section-9-1" class="pilcrow">¶</a></p>
 <a href="#section-10.2" class="section-number selfRef">10.2. </a><a href="#name-informative-references" class="section-name selfRef">Informative References</a>
         </h3>
 <dl class="references">
-<dt id="I-D.ietf-quic-http">[I-D.ietf-quic-http]</dt>
+<dt id="H3">[HTTP/3]</dt>
         <dd>
-<span class="refAuthor">Bishop, M.</span>, <span class="refTitle">"HTTP/3"</span>, <span class="refContent">Work in Progress</span>, <span class="seriesInfo">Internet-Draft, draft-ietf-quic-http-34</span>, <time datetime="2021-02-02" class="refDate">2 February 2021</time>, <span>&lt;<a href="https://datatracker.ietf.org/doc/html/draft-ietf-quic-http-34">https://datatracker.ietf.org/doc/html/draft-ietf-quic-http-34</a>&gt;</span>. </dd>
+<span class="refAuthor">Bishop, M., Ed.</span>, <span class="refTitle">"HTTP/3"</span>, <span class="seriesInfo">RFC 9114</span>, <span class="seriesInfo">DOI 10.17487/RFC9114</span>, <time datetime="2022-06" class="refDate">June 2022</time>, <span>&lt;<a href="https://www.rfc-editor.org/rfc/rfc9114">https://www.rfc-editor.org/rfc/rfc9114</a>&gt;</span>. </dd>
 <dd class="break"></dd>
 <dt id="QUIC-INVARIANTS">[QUIC-INVARIANTS]</dt>
         <dd>
