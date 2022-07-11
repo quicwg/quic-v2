@@ -27,6 +27,10 @@ normative:
   QUIC-TLS: RFC9001
 
 informative:
+  H3:
+    =: RFC9114
+    display: HTTP/3
+
 
 --- abstract
 
@@ -75,7 +79,7 @@ needs to implement version negotiation to protect against downgrade attacks.
 # Differences with QUIC Version 1
 
 QUIC version 2 endpoints MUST implement the QUIC version 1 specification as
-described in {{QUIC}}, {{QUIC-TLS}}, and {{!QUIC-LOSSRECOVERY=RFC9002}}.
+described in {{QUIC}}, {{QUIC-TLS}}, and {{!QUIC-RECOVERY=RFC9002}}.
 However, the following differences apply in version 2.
 
 ## Version Field
@@ -231,7 +235,7 @@ This version of QUIC provides no change from QUIC version 1 relating to the
 capabilities available to applications. Therefore, all Application Layer
 Protocol Negotiation (ALPN) ({{?RFC7301}}) codepoints specified to operate over
 QUIC version 1 can also operate over this version of QUIC. In particular, both
-the "h3" {{?I-D.ietf-quic-http}} and "doq" {{?RFC9250}} ALPNs can operate over
+the "h3" {{H3}} and "doq" {{?RFC9250}} ALPNs can operate over
 QUIC version 2.
 
 Unless otherwise stated, all QUIC extensions defined to work with version 1 also
