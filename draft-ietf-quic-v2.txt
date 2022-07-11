@@ -4,8 +4,8 @@
 
 QUIC                                                             M. Duke
 Internet-Draft                                                Google LLC
-Intended status: Standards Track                             25 May 2022
-Expires: 26 November 2022
+Intended status: Standards Track                            11 July 2022
+Expires: 12 January 2023
 
 
                              QUIC Version 2
@@ -55,7 +55,7 @@ Status of This Memo
    time.  It is inappropriate to use Internet-Drafts as reference
    material or to cite them other than as "work in progress."
 
-   This Internet-Draft will expire on 26 November 2022.
+   This Internet-Draft will expire on 12 January 2023.
 
 Copyright Notice
 
@@ -364,9 +364,9 @@ Table of Contents
 
    [QUIC-VN]  Schinazi, D. and E. Rescorla, "Compatible Version
               Negotiation for QUIC", Work in Progress, Internet-Draft,
-              draft-ietf-quic-version-negotiation-07, 5 April 2022,
+              draft-ietf-quic-version-negotiation-08, 8 June 2022,
               <https://datatracker.ietf.org/doc/html/draft-ietf-quic-
-              version-negotiation-07>.
+              version-negotiation-08>.
 
    [RFC2119]  Bradner, S., "Key words for use in RFCs to Indicate
               Requirement Levels", BCP 14, RFC 2119,
@@ -380,9 +380,8 @@ Table of Contents
 10.2.  Informative References
 
    [I-D.ietf-quic-http]
-              Bishop, M., "Hypertext Transfer Protocol Version 3
-              (HTTP/3)", Work in Progress, Internet-Draft, draft-ietf-
-              quic-http-34, 2 February 2021,
+              Bishop, M., "HTTP/3", Work in Progress, Internet-Draft,
+              draft-ietf-quic-http-34, 2 February 2021,
               <https://datatracker.ietf.org/doc/html/draft-ietf-quic-
               http-34>.
 
