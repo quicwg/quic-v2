@@ -1,6 +1,6 @@
 {
   "magic": "E!vIA5L86J2I",
-  "timestamp": "2022-05-22T00:42:53.061866+00:00",
+  "timestamp": "2022-07-12T00:50:48.269266+00:00",
   "repo": "quicwg/quic-v2",
   "labels": [
     {
@@ -3380,6 +3380,62 @@
       "mergedBy": "martinduke",
       "mergeCommit": {
         "oid": "7829aa87b0111335edcc17e5a853c72b221f504d"
+      },
+      "comments": [],
+      "reviews": []
+    },
+    {
+      "number": 70,
+      "id": "PR_kwDOFX7TQc47NILO",
+      "title": "add writeup",
+      "url": "https://github.com/quicwg/quic-v2/pull/70",
+      "state": "MERGED",
+      "author": "LPardue",
+      "authorAssociation": "MEMBER",
+      "assignees": [],
+      "labels": [],
+      "body": "",
+      "createdAt": "2022-07-11T16:11:57Z",
+      "updatedAt": "2022-07-11T16:14:07Z",
+      "baseRepository": "quicwg/quic-v2",
+      "baseRefName": "main",
+      "baseRefOid": "9cafdc045df3b9623af18c1a46345ed4d0271247",
+      "headRepository": "quicwg/quic-v2",
+      "headRefName": "shepherd-writeup",
+      "headRefOid": "2fb180cab074569c026e1d6a7ab3e353b44ec04c",
+      "closedAt": "2022-07-11T16:14:07Z",
+      "mergedAt": "2022-07-11T16:14:07Z",
+      "mergedBy": "martinduke",
+      "mergeCommit": {
+        "oid": "a1b1275c9807acb773c6b57423b5565e76087180"
+      },
+      "comments": [],
+      "reviews": []
+    },
+    {
+      "number": 71,
+      "id": "PR_kwDOFX7TQc47NKLq",
+      "title": "tweak references to match house style",
+      "url": "https://github.com/quicwg/quic-v2/pull/71",
+      "state": "MERGED",
+      "author": "LPardue",
+      "authorAssociation": "MEMBER",
+      "assignees": [],
+      "labels": [],
+      "body": "",
+      "createdAt": "2022-07-11T16:20:18Z",
+      "updatedAt": "2022-07-11T16:22:30Z",
+      "baseRepository": "quicwg/quic-v2",
+      "baseRefName": "main",
+      "baseRefOid": "a1b1275c9807acb773c6b57423b5565e76087180",
+      "headRepository": "quicwg/quic-v2",
+      "headRefName": "ref-styles",
+      "headRefOid": "0cd7430d3d86da7e85d1c9447a832afdea44bd28",
+      "closedAt": "2022-07-11T16:22:30Z",
+      "mergedAt": "2022-07-11T16:22:29Z",
+      "mergedBy": "martinduke",
+      "mergeCommit": {
+        "oid": "3d2af981f8ed63b6256aadb2fec122a2df469fc6"
       },
       "comments": [],
       "reviews": []
