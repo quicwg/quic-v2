@@ -47,8 +47,8 @@ version number other than 2 in the wire image.
 
 # Introduction
 
-QUIC {{QUIC}} has numerous extension points, including the version number
-that occupies the second through fifth bytes of every long header (see
+QUIC version 1{{QUIC}} has numerous extension points, including the version
+number that occupies the second through fifth bytes of every long header (see
 {{?QUIC-INVARIANTS=RFC8999}}). If experimental versions are rare, and QUIC
 version 1 constitutes the vast majority of QUIC traffic, there is the potential
 for middleboxes to ossify on the version bytes always being 0x00000001.
@@ -152,7 +152,7 @@ Any QUIC endpoint that supports QUIC version 2 MUST send, process, and validate
 the version_information transport parameter specified in {{QUIC-VN}} to prevent
 version downgrade attacks.
 
-Note that version 2 meets that document's definition of a compatible version
+Note that version 2 meets the {{QUIC-VN}} definition of a compatible version
 with version 1, and version 1 is compatible with version 2. Therefore, servers
 can use compatible negotiation to switch a connection between the two versions.
 Endpoints that support both versions SHOULD support compatible version
@@ -166,9 +166,9 @@ version" and "negotiated version" from {{QUIC-VN}}.
 
 If the server sends a Retry packet, it MUST use the original version. The
 client ignores Retry packets using other versions. The client MUST NOT use a
-different version in the subsequent Initial that contains the Retry token. The
-server MAY encode the QUIC version in its Retry token to validate that the
-client did not switch versions, and drop the packet if it switched.
+different version in the subsequent Initial packet that contains the Retry
+token. The server MAY encode the QUIC version in its Retry token to validate
+that the client did not switch versions, and drop the packet if it switched.
 
 QUIC version 2 uses the same transport parameters to authenticate the Retry as
 QUIC version 1. After switching to a negotiated version after a Retry, the
