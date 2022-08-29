@@ -192,8 +192,8 @@ no need to generate the keying material that would allow them to decrypt or
 authenticate these packets.
 
 The client MUST NOT send 0-RTT packets using the negotiated version, even after
-processing a packet of that version from the server. Servers can apply original
-version 0-RTT packets to a connection without additional considerations.
+processing a packet of that version from the server. Servers can accept 0-RTT
+and then process 0-RTT packets from the original version.
 
 # TLS Resumption and NEW_TOKEN Tokens
 
@@ -538,13 +538,18 @@ packet = 5558b1c60ae7b6b932bc27d786f4bc2bb20f2162ba
 
 # Acknowledgments
 
-The author would like to thank Lucas Pardue, David Schinazi, and Martin Thomson
-for their helpful suggestions.
+The author would like to thank Lucas Pardue, Zahed Sarker, David Schinazi, and
+Martin Thomson for their helpful suggestions.
 
 # Changelog
 
 > **RFC Editor's Note:**  Please remove this section prior to
 > publication of a final version of this document.
+
+## since draft-ietf-quic-v2-04
+
+* Clarified 0-RTT handling
+* Editorial comments from Zahed Sarker.
 
 ## since draft-ietf-quic-v2-03
 
