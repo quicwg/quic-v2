@@ -549,7 +549,7 @@ Schinazi, and Martin Thomson for their helpful suggestions.
 
 ## since draft-ietf-quic-v2-05
 
-* Comments from SECDIR reveiw.
+* Comments from SECDIR review.
 
 ## since draft-ietf-quic-v2-04
 
