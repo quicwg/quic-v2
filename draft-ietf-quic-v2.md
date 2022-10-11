@@ -169,7 +169,8 @@ If the server sends a Retry packet, it MUST use the original version. The
 client ignores Retry packets using other versions. The client MUST NOT use a
 different version in the subsequent Initial packet that contains the Retry
 token. The server MAY encode the QUIC version in its Retry token to validate
-that the client did not switch versions, and drop the packet if it switched.
+that the client did not switch versions, and drop the packet if it switched,
+to enforce client compliance.
 
 QUIC version 2 uses the same transport parameters to authenticate the Retry as
 QUIC version 1. After switching to a negotiated version after a Retry, the
@@ -190,7 +191,7 @@ packet with the negotiated version.
 Both endpoints MUST send Handshake or 1-RTT packets using the negotiated
 version. An endpoint MUST drop packets using any other version. Endpoints have
 no need to generate the keying material that would allow them to decrypt or
-authenticate these packets.
+authenticate such packets.
 
 The client MUST NOT send 0-RTT packets using the negotiated version, even after
 processing a packet of that version from the server. Servers can accept 0-RTT
@@ -539,13 +540,17 @@ packet = 5558b1c60ae7b6b932bc27d786f4bc2bb20f2162ba
 
 # Acknowledgments
 
-The author would like to thank Lucas Pardue, Zahed Sarker, David Schinazi, and
-Martin Thomson for their helpful suggestions.
+The author would like to thank Lucas Pardue, Kyle Rose, Zahed Sarker, David
+Schinazi, and Martin Thomson for their helpful suggestions.
 
 # Changelog
 
 > **RFC Editor's Note:**  Please remove this section prior to
 > publication of a final version of this document.
+
+## since draft-ietf-quic-v2-05
+
+* Comments from SECDIR review.
 
 ## since draft-ietf-quic-v2-04
 
