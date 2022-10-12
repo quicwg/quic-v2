@@ -159,6 +159,13 @@ can use compatible negotiation to switch a connection between the two versions.
 Endpoints that support both versions SHOULD support compatible version
 negotiation to avoid a round trip.
 
+QUIC version 2 does not allow the chosen_version field of the version_info
+transport parameter to disagree with the version field of the long header. If
+an endpoint receives an otherwise valid long header packet that also contains
+a version_info transport parameter, and the chosen_version field does not match
+the version in the packet header, the endpoint MUST close the connection with
+error code TRANSPORT_PARAMETER_ERROR.
+
 ## Compatible Negotiation Requirements
 
 Compatible version negotiation between versions 1 and 2 follow the same
@@ -540,8 +547,8 @@ packet = 5558b1c60ae7b6b932bc27d786f4bc2bb20f2162ba
 
 # Acknowledgments
 
-The author would like to thank Lucas Pardue, Kyle Rose, Zahed Sarker, David
-Schinazi, and Martin Thomson for their helpful suggestions.
+The author would like to thank Lucas Pardue, Kyle Rose, Anthony Rossi, Zahed
+Sarker, David Schinazi, and Martin Thomson for their helpful suggestions.
 
 # Changelog
 
@@ -551,6 +558,7 @@ Schinazi, and Martin Thomson for their helpful suggestions.
 ## since draft-ietf-quic-v2-05
 
 * Comments from SECDIR review.
+* Clarified behavior when transport parameter does not match version field
 
 ## since draft-ietf-quic-v2-04
 
