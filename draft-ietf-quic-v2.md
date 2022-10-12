@@ -259,7 +259,7 @@ registry:
 
 Value: 0x709a50c4
 
-Status: provisional
+Status: permanent
 
 Specification: This Document
 
