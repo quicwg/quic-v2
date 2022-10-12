@@ -159,12 +159,25 @@ can use compatible negotiation to switch a connection between the two versions.
 Endpoints that support both versions SHOULD support compatible version
 negotiation to avoid a round trip.
 
-QUIC version 2 does not allow the chosen_version field of the version_info
-transport parameter to disagree with the version field of the long header. If
-an endpoint receives an otherwise valid long header packet that also contains
-a version_info transport parameter, and the chosen_version field does not match
-the version in the packet header, the endpoint MUST close the connection with
-error code TRANSPORT_PARAMETER_ERROR.
+## Transport Parameter errors
+
+An endpoint MUST close the connection with error code TRANSPORT_PARAMETER_ERROR
+in three cases.
+
+* A long header indicates QUIC version 1 but the packet contains a version_info
+transport parameter has QUIC version 2 in the Chosen Version field.
+
+* A long header indicates QUIC version 2 but the packet contains a version_info
+transport parameter has QUIC version 1 in the Chosen Version field.
+
+* A client receives a long header that indicates QUIC version 2 but a
+version_info transport parameter within has a version in the Chosen Version
+field that the client does not support.
+
+If a server receives a QUIC version 2 long header with a version_info transport
+parameter and a Chosen Version field with a version it does not support, it
+SHOULD respond with a Version Negotiation packet, as if the Long Header matched
+the Chosen Version.
 
 ## Compatible Negotiation Requirements
 
