@@ -183,9 +183,15 @@ version as soon as it decides to change. Before the server is able to process
 transport parameters from the client, it might need to respond to Initial
 packets from the client. For these packets the server uses the original version.
 
-Once the client has processed a packet using the negotiated version, it SHOULD
-send subsequent Initial packets using that version. The server MUST NOT discard
-its original version Initial receive keys until it successfully processes a
+A client learns the negotiated version from the version field of the first
+successfully processed Initial packet that is not equal to the original version.
+If it processes no such packet, it learns the negotiated version from the first
+successfully processed Handshake packet, which might indicate that no version
+change takes place.
+
+Once the client has learned the negotiated version, it SHOULD send subsequent
+Initial packets using that version. The server MUST NOT discard its original
+version Initial receive keys until it successfully processes a Handshake
 packet with the negotiated version.
 
 Both endpoints MUST send Handshake or 1-RTT packets using the negotiated
