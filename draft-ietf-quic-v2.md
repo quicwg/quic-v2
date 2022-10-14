@@ -187,12 +187,6 @@ Version field that differs from the original version. If the client receives a
 CRYPTO frame from the server in the original version, that indicates that the
 negotiated version is equal to the original version.
 
-After learning the negotiated version, clients SHOULD discard packets with other
-versions, though they MAY decrypt Initial packets with the original version and
-process them if they fill a hole in the Initial sequence number space. Clients
-MUST discard packets with the original version if their packet number exceeds
-the lowest packet number with the negotiated version.
-
 Before the server is able to process transport parameters from the client, it
 might need to respond to Initial packets from the client. For these packets, the
 server uses the original version.
