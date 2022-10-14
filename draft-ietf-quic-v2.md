@@ -179,7 +179,7 @@ server sent the Retry and the connection IDs used in the exchange, as described
 in {{Section 7.3 of QUIC}}.
 
 The server cannot send CRYPTO frames until it has processed the client's
-transport parameters. Therefore, the server MUST send all CRYPTO frames using
+transport parameters. The server MUST send all CRYPTO frames using
 the negotiated version.
 
 The client learns the negotiated version by observing the first long header
