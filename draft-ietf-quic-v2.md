@@ -178,23 +178,22 @@ server MUST include the relevant transport parameters to validate that the
 server sent the Retry and the connection IDs used in the exchange, as described
 in {{Section 7.3 of QUIC}}.
 
-The server SHOULD start sending its Initial packets using the negotiated
-version as soon as it decides to change. Before the server is able to process
-transport parameters from the client, it might need to respond to Initial
-packets from the client. For these packets the server uses the original version.
+As the server cannot send CRYPTO frames until it has processed the client's
+transport parameters, it MUST send all CRYPTO frames in Initial packets using
+the negotiated version. The client learns the negotiated version from the first
+Initial CRYPTO frame it successfully processes, and MUST discard any packets
+with a higher packet number that use the original version.
 
-A client learns the negotiated version from the version field of the first
-successfully processed Initial packet that is not equal to the original version.
-If it processes no such packet, it learns the negotiated version from the first
-successfully processed Handshake packet, which might indicate that no version
-change takes place.
+Before the server is able to process transport parameters from the client, it
+might need to respond to Initial packets from the client. For these packets, the
+server uses the original version.
 
 Once the client has learned the negotiated version, it SHOULD send subsequent
 Initial packets using that version. The server MUST NOT discard its original
 version Initial receive keys until it successfully processes a Handshake
 packet with the negotiated version.
 
-Both endpoints MUST send Handshake or 1-RTT packets using the negotiated
+Both endpoints MUST send Handshake and 1-RTT packets using the negotiated
 version. An endpoint MUST drop packets using any other version. Endpoints have
 no need to generate the keying material that would allow them to decrypt or
 authenticate such packets.
@@ -546,8 +545,9 @@ packet = 5558b1c60ae7b6b932bc27d786f4bc2bb20f2162ba
 
 # Acknowledgments
 
-The author would like to thank Lucas Pardue, Kyle Rose, Zahed Sarker, David
-Schinazi, and Martin Thomson for their helpful suggestions.
+The author would like to thank Christian Huitema, Lucas Pardue, Kyle Rose,
+Anthony Rossi, Zahed Sarker, David Schinazi, Tatsuhiro Tsujikawa, and Martin
+Thomson for their helpful suggestions.
 
 # Changelog
 
@@ -556,6 +556,9 @@ Schinazi, and Martin Thomson for their helpful suggestions.
 
 ## since draft-ietf-quic-v2-05
 
+* Servers MUST use the negotiated version in Initials with CRYPTO frames.
+* Clarified when clients "learn" the negotiated version as required in the VN
+draft.
 * Comments from SECDIR review.
 
 ## since draft-ietf-quic-v2-04
