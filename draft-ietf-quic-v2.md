@@ -178,11 +178,20 @@ server MUST include the relevant transport parameters to validate that the
 server sent the Retry and the connection IDs used in the exchange, as described
 in {{Section 7.3 of QUIC}}.
 
-As the server cannot send CRYPTO frames until it has processed the client's
-transport parameters, it MUST send all CRYPTO frames in Initial packets using
-the negotiated version. The client learns the negotiated version from the first
-Initial CRYPTO frame it successfully processes, and MUST discard any packets
-with a higher packet number that use the original version.
+The server cannot send CRYPTO frames until it has processed the client's
+transport parameters. Therefore, the server MUST send all CRYPTO frames using
+the negotiated version.
+
+The client learns the negotiated version by observing the first long header
+Version field that differs from the original version. If the client receives a
+CRYPTO frame from the server in the original version, that indicates that the
+negotiated version is equal to the original version.
+
+After learning the negotiated version, clients SHOULD discard packets with other
+versions, though they MAY decrypt Initial packets with the original version and
+process them if they fill a hole in the Initial sequence number space. Clients
+MUST discard packets with the original version if their packet number exceeds
+the lowest packet number with the negotiated version.
 
 Before the server is able to process transport parameters from the client, it
 might need to respond to Initial packets from the client. For these packets, the
