@@ -178,17 +178,25 @@ server MUST include the relevant transport parameters to validate that the
 server sent the Retry and the connection IDs used in the exchange, as described
 in {{Section 7.3 of QUIC}}.
 
-The server SHOULD start sending its Initial packets using the negotiated
-version as soon as it decides to change. Before the server is able to process
-transport parameters from the client, it might need to respond to Initial
-packets from the client. For these packets the server uses the original version.
+The server cannot send CRYPTO frames until it has processed the client's
+transport parameters. The server MUST send all CRYPTO frames using
+the negotiated version.
 
-Once the client has processed a packet using the negotiated version, it SHOULD
-send subsequent Initial packets using that version. The server MUST NOT discard
-its original version Initial receive keys until it successfully processes a
+The client learns the negotiated version by observing the first long header
+Version field that differs from the original version. If the client receives a
+CRYPTO frame from the server in the original version, that indicates that the
+negotiated version is equal to the original version.
+
+Before the server is able to process transport parameters from the client, it
+might need to respond to Initial packets from the client. For these packets, the
+server uses the original version.
+
+Once the client has learned the negotiated version, it SHOULD send subsequent
+Initial packets using that version. The server MUST NOT discard its original
+version Initial receive keys until it successfully processes a Handshake
 packet with the negotiated version.
 
-Both endpoints MUST send Handshake or 1-RTT packets using the negotiated
+Both endpoints MUST send Handshake and 1-RTT packets using the negotiated
 version. An endpoint MUST drop packets using any other version. Endpoints have
 no need to generate the keying material that would allow them to decrypt or
 authenticate such packets.
@@ -540,8 +548,9 @@ packet = 5558b1c60ae7b6b932bc27d786f4bc2bb20f2162ba
 
 # Acknowledgments
 
-The author would like to thank Lucas Pardue, Kyle Rose, Zahed Sarker, David
-Schinazi, and Martin Thomson for their helpful suggestions.
+The author would like to thank Christian Huitema, Lucas Pardue, Kyle Rose,
+Anthony Rossi, Zahed Sarker, David Schinazi, Tatsuhiro Tsujikawa, and Martin
+Thomson for their helpful suggestions.
 
 # Changelog
 
@@ -550,6 +559,9 @@ Schinazi, and Martin Thomson for their helpful suggestions.
 
 ## since draft-ietf-quic-v2-05
 
+* Servers MUST use the negotiated version in Initials with CRYPTO frames.
+* Clarified when clients "learn" the negotiated version as required in the VN
+draft.
 * Comments from SECDIR review.
 
 ## since draft-ietf-quic-v2-04
