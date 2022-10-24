@@ -69,9 +69,14 @@ differ semantically.
 
 QUIC version 2 is meant to mitigate ossification concerns and exercise the
 version negotiation mechanisms. The changes provide an example of the minimum
-set of changes necessary to specify a new QUIC version. Any endpoint that
-supports two versions needs to implement version negotiation to protect against
-downgrade attacks.
+set of changes necessary to specify a new QUIC version. However, note that the
+choice of the version number on the wire is randomly chosen instead of "2", and
+the two bits that identify each long header packet type are different from
+version 1; both of these properties are meant to combat ossification and are not
+strictly required of a new QUIC version.
+
+Any endpoint that supports two versions needs to implement version negotiation
+to protect against downgrade attacks.
 
 # Conventions
 
