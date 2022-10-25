@@ -41,7 +41,8 @@ template for the minimum changes in any future version of QUIC.
 
 Note that "version 2" is an informal name for this proposal that indicates it
 is the second standards-track QUIC version. The protocol specified here uses a
-version number other than 2 in the wire image.
+version number other than 2 in the wire image, in order to minimize ossification
+risk.
 
 --- middle
 
@@ -242,6 +243,10 @@ particular, a server that issues a session ticket for version 2 indicates an
 intent to maintain version 2 support while the ticket remains valid, even if
 support cannot be guaranteed.
 
+Some clients keep track of paths that do not support QUIC by recording failures
+to connect over those paths. Such clients SHOULD count version 2 and version 1
+failures separately, as a path might block version 2 but allow version 1.
+
 # Applicability {#applicability}
 
 This version of QUIC provides no change from QUIC version 1 relating to the
@@ -266,17 +271,24 @@ identical.
 # IANA Considerations
 
 This document requests that IANA add the following entry to the QUIC version
-registry:
+registry maintained at
+<[](https://www.iana.org/assignments/quic/quic.xhtml#quic-versions)>.
 
-Value: 0x709a50c4
+Value:
+: 0x709a50c4
 
-Status: permanent
+Status:
+: permanent
 
-Specification: This Document
+Specification:
+: This Document
 
-Change Controller: IETF
+Change Controller:
+: IETF
 
-Contact: QUIC WG
+Contact:
+: QUIC WG
+{: spacing="compact"}
 
 --- back
 
