@@ -114,6 +114,9 @@ initial_salt = 0xa707c203a59b47184a1d62ca570406ea7ae3e5d3
 
 ### HKDF Labels
 
+> **RFC Editor's Note:**  Please ensure that the strings in quotes are not split
+> up in a line break in this section.
+
 The labels used in {{QUIC-TLS}} to derive packet protection keys (Section
 {{Section 5.1 of QUIC-TLS}}{:sectionFormat="bare"}), header protection keys
 (Section {{Section 5.4 of QUIC-TLS}}{:sectionFormat="bare"}), Retry Integrity
