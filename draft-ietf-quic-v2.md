@@ -212,7 +212,7 @@ and then process 0-RTT packets from the original version.
 # TLS Resumption and NEW_TOKEN Tokens
 
 TLS session tickets and NEW_TOKEN tokens are specific to the QUIC version of the
-connection that provided them. Clients SHOULD NOT use a session ticket or token
+connection that provided them. Clients MUST NOT use a session ticket or token
 from a QUIC version 1 connection to initiate a QUIC version 2 connection, or vice
 versa.
 
@@ -232,11 +232,11 @@ that assume that all long headers will encode version 1, or that the version 1
 Initial key derivation formula will remain version-invariant, will not correctly
 process version 2 packets.
 
-However, many middleboxes such as firewalls focus on the first packet in a
+However, many middleboxes, such as firewalls, focus on the first packet in a
 connection, which will often remain in the version 1 format due to the
 considerations above.
 
-Clients interested in combating firewall ossification can initiate a connection
+Clients interested in combating middlebox ossification can initiate a connection
 using version 2 if they are either reasonably certain the server supports it, or
 are willing to suffer a round-trip penalty if they are incorrect.  In
 particular, a server that issues a session ticket for version 2 indicates an
@@ -267,6 +267,9 @@ QUIC version 1.
 The mandatory version negotiation mechanism guards against downgrade attacks,
 but downgrades have no security implications, as the version properties are
 identical.
+
+Support for QUIC version 2 can help an observer to fingerprint both client and
+server devices.
 
 # IANA Considerations
 
