@@ -585,7 +585,7 @@ Thomson for their helpful suggestions.
 * Clients MUST NOT use TLS resumption tickets across versions
 * Servers SHOULD support multiple versions
 * Clients SHOULD check path support for QUIC independently by version
-* Minor editorial changes 
+* Minor editorial changes
 
 ## since draft-ietf-quic-v2-05
 
