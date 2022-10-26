@@ -59,7 +59,7 @@ way allows observers to inspect their contents, which includes the TLS Client
 Hello or Server Hello messages. Again, there is the potential for middleboxes to
 ossify on the version 1 key derivation and packet formats.
 
-Finally {{!QUIC-VN=I-D.ietf-quic-version-negotiation}} provides two mechanisms
+Finally, {{!QUIC-VN=I-D.ietf-quic-version-negotiation}} provides two mechanisms
 for endpoints to negotiate the QUIC version to use. The "incompatible" version
 negotiation method can support switching from any QUIC version to any
 other version with full generality, at the cost of an additional round-trip at
