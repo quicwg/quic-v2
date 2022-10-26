@@ -580,6 +580,13 @@ Thomson for their helpful suggestions.
 > **RFC Editor's Note:**  Please remove this section prior to
 > publication of a final version of this document.
 
+## since draft-ietf-quic-v2-06
+
+* Clients MUST NOT use TLS resumption tickets across versions
+* Servers SHOULD support multiple versions
+* Clients SHOULD check path support for QUIC independently by version
+* Minor editorial changes 
+
 ## since draft-ietf-quic-v2-05
 
 * Servers MUST use the negotiated version in Initials with CRYPTO frames.
