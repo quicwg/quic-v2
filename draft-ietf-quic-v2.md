@@ -152,7 +152,7 @@ QUIC version 2 is not intended to deprecate version 1. Endpoints that support
 version 2 might continue support for version 1 to maximize compatibility with
 other endpoints. In particular, HTTP clients often use Alt-Svc {{?RFC7838}} to
 discover QUIC support. As this mechanism does not currently distinguish between
-QUIC versions, HTTP servers that SHOULD support multiple versions reduce the
+QUIC versions, HTTP servers SHOULD support multiple versions to reduce the
 probability of incompatibility and the cost associated with QUIC version
 negotiation or TCP fallback. For example, an origin advertising support for "h3"
 in Alt-Svc should support QUIC version 1 as it was the original QUIC version
