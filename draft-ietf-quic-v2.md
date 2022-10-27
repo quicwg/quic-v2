@@ -85,13 +85,14 @@ to protect against downgrade attacks.
 
 # Differences with QUIC Version 1
 
-QUIC version 2 endpoints MUST implement the QUIC version 1 specification as
-described in {{QUIC}}, {{QUIC-TLS}}, and {{!QUIC-RECOVERY=RFC9002}}.
-However, the following differences apply in version 2.
+Except for a few differences, QUIC version 2 endpoints MUST implement the QUIC
+version 1 specification as described in {{QUIC}}, {{QUIC-TLS}}, and
+{{!QUIC-RECOVERY=RFC9002}}. The remainder of this section lists the differences.
 
 ## Version Field
 
-The Version field of long headers is 0x709a50c4.
+The Version field of long headers is 0x709a50c4. This randomly chosen value is
+meant to avoid creating patterns in specified version numbers.
 
 > **RFC Editor's Note:**  Please remove the sentence below prior to publication
 > of a final version of this document.
@@ -109,6 +110,8 @@ All version 2 long header packet types are different. The Type field values are:
 * Retry: 0b00
 
 ## Cryptography changes
+
+The values below were chosen randomly.
 
 ### Initial Salt
 
