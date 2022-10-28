@@ -251,10 +251,6 @@ particular, a server that issues a session ticket for version 2 indicates an
 intent to maintain version 2 support while the ticket remains valid, even if
 support cannot be guaranteed.
 
-Some clients keep track of paths that do not support QUIC by recording failures
-to connect over those paths. Such clients SHOULD count version 2 and version 1
-failures separately, as a path might block version 2 but allow version 1.
-
 # Applicability {#applicability}
 
 This version of QUIC provides no change from QUIC version 1 relating to the
