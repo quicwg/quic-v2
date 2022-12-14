@@ -288,10 +288,26 @@ registry maintained at
 <[](https://www.iana.org/assignments/quic/quic.xhtml#quic-versions)>.
 
 Value:
-: 0x709a50c4
+: 0x6b3343cf
 
 Status:
 : permanent
+
+Specification:
+: This Document
+
+Change Controller:
+: IETF
+
+Contact:
+: QUIC WG
+{: spacing="compact"}
+
+Value:
+: 0x709a50c4
+
+Status:
+: provisional
 
 Specification:
 : This Document
@@ -585,6 +601,14 @@ Thomson for their helpful suggestions.
 
 > **RFC Editor's Note:**  Please remove this section prior to
 > publication of a final version of this document.
+
+## since draft-ietf-quic-v2-08
+
+* Updated IANA considerations in accordance with new constants
+
+## since draft-ietf-quic-v2-07
+
+* Generated new constants and test vectors
 
 ## since draft-ietf-quic-v2-06
 
