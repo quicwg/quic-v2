@@ -317,6 +317,9 @@ Change Controller:
 
 Contact:
 : QUIC WG
+
+Note:
+: QUIC v2 draft codepoint
 {: spacing="compact"}
 
 --- back
@@ -601,6 +604,10 @@ Thomson for their helpful suggestions.
 
 > **RFC Editor's Note:**  Please remove this section prior to
 > publication of a final version of this document.
+
+## since draft-ietf-quic-v2-09
+
+* Added note for provisional IANA registration
 
 ## since draft-ietf-quic-v2-08
 
