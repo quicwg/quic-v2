@@ -80,7 +80,7 @@ Table of Contents
      A.3.  Server Initial
      A.4.  Retry
      A.5.  ChaCha20-Poly1305 Short Header Packet
-   Appendix B.  Acknowledgments {-}
+   Acknowledgments
    Author's Address
 
 1.  Introduction
@@ -100,7 +100,7 @@ Table of Contents
    the version 1 key derivation and packet formats.
 
    Finally, [QUIC-VN] describes two mechanisms endpoints can use to
-   negotiate the QUIC version to use.  The "incompatible" version
+   negotiate which QUIC version to select.  The "incompatible" version
    negotiation method can support switching from any QUIC version to any
    other version with full generality, at the cost of an additional
    round trip at the start of the connection.  "Compatible" version
@@ -329,7 +329,7 @@ Table of Contents
 
 9.  IANA Considerations
 
-   IANA has added to following entreis to the "QUIC Versions" registry
+   IANA has added the following entries to the "QUIC Versions" registry
    maintained at https://www.iana.org/assignments/quic
    (https://www.iana.org/assignments/quic).
 
@@ -365,10 +365,8 @@ Table of Contents
               <https://www.rfc-editor.org/rfc/rfc9001>.
 
    [QUIC-VN]  Schinazi, D. and E. Rescorla, "Compatible Version
-              Negotiation for QUIC", Work in Progress, Internet-Draft,
-              draft-ietf-quic-version-negotiation-14, 19 December 2022,
-              <https://datatracker.ietf.org/doc/html/draft-ietf-quic-
-              version-negotiation-14>.
+              Negotiation for QUIC", RFC 9368, DOI 10.17487/RFC9368, May
+              2023, <https://www.rfc-editor.org/rfc/rfc9368>.
 
    [RFC2119]  Bradner, S., "Key words for use in RFCs to Indicate
               Requirement Levels", BCP 14, RFC 2119,
@@ -408,7 +406,7 @@ Appendix A.  Sample Packet Protection
    This section shows examples of packet protection so that
    implementations can be verified incrementally.  Samples of Initial
    packets from both the client and server plus a Retry packet are
-   defined.  These packets use an 8-byte client- chosen Destination
+   defined.  These packets use an 8-byte client-chosen Destination
    Connection ID of 0x8394c8f03e515708.  Some intermediate values are
    included.  All values are shown in hexadecimal.
 
@@ -640,7 +638,7 @@ A.5.  ChaCha20-Poly1305 Short Header Packet
 
    packet = 5558b1c60ae7b6b932bc27d786f4bc2bb20f2162ba
 
-Appendix B.  Acknowledgments {-}
+Acknowledgments
 
    The author would like to thank Christian Huitema, Lucas Pardue, Kyle
    Rose, Anthony Rossi, Zahed Sarker, David Schinazi, Tatsuhiro
