@@ -1232,7 +1232,7 @@ order to minimize ossification risks.<a href="#section-abstract-2" class="pilcro
             </ul>
 </li>
           <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.12">
-            <p id="section-toc.1-1.12.1"><a href="#appendix-B" class="auto internal xref">Appendix B</a>.  <a href="#name-acknowledgments-" class="internal xref">Acknowledgments {-}</a></p>
+            <p id="section-toc.1-1.12.1"><a href="#appendix-B" class="auto internal xref"></a><a href="#name-acknowledgments" class="internal xref">Acknowledgments</a></p>
 </li>
           <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.13">
             <p id="section-toc.1-1.13.1"><a href="#appendix-C" class="auto internal xref"></a><a href="#name-authors-address" class="internal xref">Author's Address</a></p>
@@ -1256,13 +1256,13 @@ as described in <span><a href="https://rfc-editor.org/rfc/rfc9001#section-5.2" c
 way allows observers to inspect their contents, which includes the TLS Client
 Hello or Server Hello messages. Again, there is the potential for middleboxes to
 ossify on the version 1 key derivation and packet formats.<a href="#section-1-2" class="pilcrow">¶</a></p>
-<p id="section-1-3">Finally, <span>[<a href="#QUIC-VN" class="cite xref">QUIC-VN</a>]</span> describes two mechanisms
-endpoints can use to negotiate the QUIC version to use. The "incompatible"
-version negotiation method can support switching from any QUIC version to any
-other version with full generality, at the cost of an additional round trip at
-the start of the connection. "Compatible" version negotiation eliminates the
-round-trip penalty but levies some restrictions on how much the two versions can
-differ semantically.<a href="#section-1-3" class="pilcrow">¶</a></p>
+<p id="section-1-3">Finally, <span>[<a href="#QUIC-VN" class="cite xref">QUIC-VN</a>]</span> describes two mechanisms endpoints can use to
+negotiate which QUIC version to select. The "incompatible" version negotiation
+method can support switching from any QUIC version to any other version with
+full generality, at the cost of an additional round trip at the start of the
+connection. "Compatible" version negotiation eliminates the round-trip penalty
+but levies some restrictions on how much the two versions can differ
+semantically.<a href="#section-1-3" class="pilcrow">¶</a></p>
 <p id="section-1-4">QUIC version 2 is meant to mitigate ossification concerns and exercise the
 version negotiation mechanisms. The changes provide an example of the minimum
 set of changes necessary to specify a new QUIC version. However, note that the
@@ -1519,7 +1519,7 @@ server devices.<a href="#section-8-3" class="pilcrow">¶</a></p>
       <h2 id="name-iana-considerations">
 <a href="#section-9" class="section-number selfRef">9. </a><a href="#name-iana-considerations" class="section-name selfRef">IANA Considerations</a>
       </h2>
-<p id="section-9-1">IANA has added to following entreis to the "QUIC Versions" registry maintained
+<p id="section-9-1">IANA has added the following entries to the "QUIC Versions" registry maintained
 at <a href="https://www.iana.org/assignments/quic">https://www.iana.org/assignments/quic</a>.<a href="#section-9-1" class="pilcrow">¶</a></p>
 <span class="break"></span><dl class="dlCompact dlParallel" id="section-9-2">
         <dt id="section-9-2.1">Value:</dt>
@@ -1605,7 +1605,7 @@ at <a href="https://www.iana.org/assignments/quic">https://www.iana.org/assignme
 <dd class="break"></dd>
 <dt id="QUIC-VN">[QUIC-VN]</dt>
         <dd>
-<span class="refAuthor">Schinazi, D.</span> and <span class="refAuthor">E. Rescorla</span>, <span class="refTitle">"Compatible Version Negotiation for QUIC"</span>, <span class="refContent">Work in Progress</span>, <span class="seriesInfo">Internet-Draft, draft-ietf-quic-version-negotiation-14</span>, <time datetime="2022-12-19" class="refDate">19 December 2022</time>, <span>&lt;<a href="https://datatracker.ietf.org/doc/html/draft-ietf-quic-version-negotiation-14">https://datatracker.ietf.org/doc/html/draft-ietf-quic-version-negotiation-14</a>&gt;</span>. </dd>
+<span class="refAuthor">Schinazi, D.</span> and <span class="refAuthor">E. Rescorla</span>, <span class="refTitle">"Compatible Version Negotiation for QUIC"</span>, <span class="seriesInfo">RFC 9368</span>, <span class="seriesInfo">DOI 10.17487/RFC9368</span>, <time datetime="2023-05" class="refDate">May 2023</time>, <span>&lt;<a href="https://www.rfc-editor.org/rfc/rfc9368">https://www.rfc-editor.org/rfc/rfc9368</a>&gt;</span>. </dd>
 <dd class="break"></dd>
 <dt id="RFC2119">[RFC2119]</dt>
         <dd>
@@ -1652,9 +1652,9 @@ at <a href="https://www.iana.org/assignments/quic">https://www.iana.org/assignme
       </h2>
 <p id="appendix-A-1">This section shows examples of packet protection so that implementations can be
 verified incrementally. Samples of Initial packets from both the client and
-server plus a Retry packet are defined. These packets use an 8-byte client-
-chosen Destination Connection ID of 0x8394c8f03e515708. Some intermediate values
-are included. All values are shown in hexadecimal.<a href="#appendix-A-1" class="pilcrow">¶</a></p>
+server plus a Retry packet are defined. These packets use an 8-byte
+client-chosen Destination Connection ID of 0x8394c8f03e515708. Some intermediate
+values are included. All values are shown in hexadecimal.<a href="#appendix-A-1" class="pilcrow">¶</a></p>
 <div id="keys">
 <section id="appendix-A.1">
         <h3 id="name-keys">
@@ -1931,10 +1931,10 @@ packet = 5558b1c60ae7b6b932bc27d786f4bc2bb20f2162ba
 </div>
 </section>
 </div>
-<div id="acknowledgments-">
+<div id="acknowledgments">
 <section id="appendix-B">
-      <h2 id="name-acknowledgments-">
-<a href="#appendix-B" class="section-number selfRef">Appendix B. </a><a href="#name-acknowledgments-" class="section-name selfRef">Acknowledgments {-}</a>
+      <h2 id="name-acknowledgments">
+<a href="#name-acknowledgments" class="section-name selfRef">Acknowledgments</a>
       </h2>
 <p id="appendix-B-1">The author would like to thank Christian Huitema, Lucas Pardue, Kyle Rose,
 Anthony Rossi, Zahed Sarker, David Schinazi, Tatsuhiro Tsujikawa, and Martin
