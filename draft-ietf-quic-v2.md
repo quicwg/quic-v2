@@ -56,13 +56,13 @@ way allows observers to inspect their contents, which includes the TLS Client
 Hello or Server Hello messages. Again, there is the potential for middleboxes to
 ossify on the version 1 key derivation and packet formats.
 
-Finally, {{!QUIC-VN=I-D.ietf-quic-version-negotiation}} describes two mechanisms
-endpoints can use to negotiate the QUIC version to use. The "incompatible"
-version negotiation method can support switching from any QUIC version to any
-other version with full generality, at the cost of an additional round trip at
-the start of the connection. "Compatible" version negotiation eliminates the
-round-trip penalty but levies some restrictions on how much the two versions can
-differ semantically.
+Finally, {{!QUIC-VN=RFC9368}} describes two mechanisms endpoints can use to
+negotiate which QUIC version to select. The "incompatible" version negotiation
+method can support switching from any QUIC version to any other version with
+full generality, at the cost of an additional round trip at the start of the
+connection. "Compatible" version negotiation eliminates the round-trip penalty
+but levies some restrictions on how much the two versions can differ
+semantically.
 
 QUIC version 2 is meant to mitigate ossification concerns and exercise the
 version negotiation mechanisms. The changes provide an example of the minimum
@@ -270,7 +270,7 @@ server devices.
 
 # IANA Considerations
 
-IANA has added to following entreis to the "QUIC Versions" registry maintained
+IANA has added the following entries to the "QUIC Versions" registry maintained
 at <https://www.iana.org/assignments/quic>.
 
 Value:
@@ -315,9 +315,9 @@ Notes:
 
 This section shows examples of packet protection so that implementations can be
 verified incrementally. Samples of Initial packets from both the client and
-server plus a Retry packet are defined. These packets use an 8-byte client-
-chosen Destination Connection ID of 0x8394c8f03e515708. Some intermediate values
-are included. All values are shown in hexadecimal.
+server plus a Retry packet are defined. These packets use an 8-byte
+client-chosen Destination Connection ID of 0x8394c8f03e515708. Some intermediate
+values are included. All values are shown in hexadecimal.
 
 
 ## Keys
@@ -580,7 +580,8 @@ The protected packet is the smallest possible packet size of 21 bytes.
 packet = 5558b1c60ae7b6b932bc27d786f4bc2bb20f2162ba
 ~~~
 
-# Acknowledgments {-}
+# Acknowledgments
+{:numbered="false"}
 
 The author would like to thank Christian Huitema, Lucas Pardue, Kyle Rose,
 Anthony Rossi, Zahed Sarker, David Schinazi, Tatsuhiro Tsujikawa, and Martin
