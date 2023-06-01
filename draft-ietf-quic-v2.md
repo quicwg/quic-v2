@@ -1,6 +1,7 @@
 ---
 title: QUIC Version 2
 abbrev: QUICv2
+docname: draft-ietf-quic-v2-latest
 number: 9369
 v: 3
 date: 2023-05
